@@ -2459,10 +2459,6 @@
             <button onClick="{{ closeContact }}" aria-label="닫기" style="cursor: pointer; border: 0; background: #f3f5fb; color: #202020; width: 36px; height: 36px; border-radius: 999px; font-size: 16px">✕</button>
           </div>
           <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 0; border-top: 1px solid rgba(32,32,32,0.12)">
-            <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: #696e82">PHONE</span><a href="tel:01000000000" style="font-size: clamp(18px, 2vw, 22px); font-weight: 700; letter-spacing: -0.02em; color: #202020; overflow-wrap: anywhere" style-hover="color: #5a80f9">010-0000-0000</a></div>
-            <button onClick="{{ copyPhone }}" style="flex: none; cursor: pointer; border: 1px solid rgba(32,32,32,0.2); background: #ffffff; color: #202020; font-size: 13px; font-weight: 600; padding: 9px 16px; border-radius: 999px" style-hover="background: #f5f7ff">{{ phoneLabel }}</button>
-          </div>
-          <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 0; border-top: 1px solid rgba(32,32,32,0.12)">
             <div style="display: flex; flex-direction: column; gap: 6px; min-width: 0"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; color: #696e82">EMAIL</span><a href="mailto:gee11018@gmail.com" style="font-size: clamp(18px, 2vw, 22px); font-weight: 700; letter-spacing: -0.02em; color: #202020; overflow-wrap: anywhere" style-hover="color: #5a80f9">gee11018@gmail.com</a></div>
             <button onClick="{{ copyEmail }}" style="flex: none; cursor: pointer; border: 1px solid rgba(32,32,32,0.2); background: #ffffff; color: #202020; font-size: 13px; font-weight: 600; padding: 9px 16px; border-radius: 999px" style-hover="background: #f5f7ff">{{ emailLabel }}</button>
           </div>
@@ -3092,9 +3088,7 @@ class Component extends DCLogic {
       openContact: (e) => { e.preventDefault(); this.setState({ contactOpen: true, copied: "" }); },
       closeContact: () => this.setState({ contactOpen: false }),
       stop: (e) => e.stopPropagation(),
-      copyPhone: () => { navigator.clipboard && navigator.clipboard.writeText("010-0000-0000"); this.setState({ copied: "phone" }); },
       copyEmail: () => { navigator.clipboard && navigator.clipboard.writeText("gee11018@gmail.com"); this.setState({ copied: "email" }); },
-      phoneLabel: this.state.copied === "phone" ? "복사됨 ✓" : "복사",
       emailLabel: this.state.copied === "email" ? "복사됨 ✓" : "복사",
       openPdf: (e) => { e.preventDefault(); this.setState({ pdfOpen: true }); document.body.style.overflow = "hidden"; },
       closePdf: () => { this.setState({ pdfOpen: false }); document.body.style.overflow = ""; },
