@@ -1,0 +1,1077 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>프로젝트1</title><meta name="data-notion-page-icon" content="💻"/><link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ctext%20y%3D%22.9em%22%20font-size%3D%2290%22%3E%F0%9F%92%BB%3C%2Ftext%3E%3C%2Fsvg%3E"/><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+/*
+ * Toggles and callouts hold arbitrary content, so they can easily be taller
+ * than a page. They must stay breakable: avoiding breaks inside them makes
+ * Chromium push the whole block onto the next page, which leaves the previous
+ * page mostly empty before every long toggle.
+ */
+details,
+aside {
+	margin: 1.25em 0;
+}
+
+/* Keep a toggle's title on the same page as the start of its content. */
+summary {
+	page-break-after: avoid;
+	break-after: avoid;
+}
+
+/*
+ * Toggle headings render as <h1/h2/h3 style="display:inline-block"> inside
+ * <summary>. Without this reset, the heading's margin-top pushes it below the
+ * ::marker (▼), so the triangle and the title appear on separate lines.
+ */
+summary h1,
+summary h2,
+summary h3,
+summary h4 {
+	margin-top: 0;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="2dd3a94a-1fa4-80d6-909a-dd58af8ee165" class="page sans" data-notion-page-icon="💻"><header><img class="page-cover-image" src="https://app.notion.com/images/page-cover/solid_blue.png" style="object-position:center 40%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon" data-emoji="💻"></span></div><h1 class="page-title" dir="auto">프로젝트1</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><p id="2e43a94a-1fa4-80fd-93c2-c4bb27a2f2fb" class="" dir="auto"><strong>아날로그 펫 헬스케어의 디지털 전환(DX) 및 실시간 의료 데이터 통합 제안</strong></p><p id="2dd3a94a-1fa4-8047-891b-ff6f5d0712e7" class="" dir="auto">
+</p><p id="2dd3a94a-1fa4-80cf-9f00-ed01957bd995" class="" dir="auto">
+</p><h3 id="2dd3a94a-1fa4-8007-a472-d6c853440d41" class="" dir="auto"><mark class="highlight-blue_background" data-notion-highlight="blue_background">시장 선정: 반려동물 &#x27;커넥티드(Connected)&#x27; 의료 접근성 및 예방 케어 시장</mark></h3><p id="2de3a94a-1fa4-80e0-831d-c60e2729bc6e" class="" dir="auto">
+</p><blockquote id="2dd3a94a-1fa4-80df-a922-c1ca519d4349" class="" dir="auto"><strong>브레인스토밍: 일상/산업 내 반복적 불편함</strong></blockquote><ul id="2de3a94a-1fa4-80d9-ab77-e45d3a3ceae2" class="bulleted-list" dir="auto"><li style="list-style-type:disc">반려동물: 야간 응급 상황 시 실제 진료 가능 여부 확인 불분명</li></ul><ul id="2de3a94a-1fa4-80ac-8941-f36bc554f8b7" class="bulleted-list" dir="auto"><li style="list-style-type:disc">반려동물: 처방 사료 구매를 위한 병원별 재고 유선 문의 반복</li></ul><ul id="2de3a94a-1fa4-80ea-8eb0-f86adc93f69b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">반려동물: 병원 이동 시 과거 접종 및 진료 이력 데이터의 단절</li></ul><ul id="2de3a94a-1fa4-8031-9451-da956e0dfd1b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">반려동물: 전화 예약 외에 실시간 비대면 예약 시스템 부재</li></ul><ul id="2de3a94a-1fa4-80f4-bbb2-ce813452ba3a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">의료/헬스: 대학병원 진료 대기 시간의 불투명성 및 긴 대기</li></ul><ul id="2de3a94a-1fa4-80c4-b3b9-c080a1e25b0a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">부동산/이사: 이사 당일 공과금 정산 및 주소 일괄 변경의 번거로움</li></ul><ul id="2de3a94a-1fa4-8000-8c48-f6e7c3b7e877" class="bulleted-list" dir="auto"><li style="list-style-type:disc">커머스: 한정판 제품 구매를 위한 오프라인 매장별 실시간 재고 미확인</li></ul><ul id="2de3a94a-1fa4-80a6-b27f-dd12a6e62d5f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">공공: 지자체별 상이한 지원금 신청 절차 및 알림 부재</li></ul><ul id="2de3a94a-1fa4-80fa-8270-fa7944e6a862" class="bulleted-list" dir="auto"><li style="list-style-type:disc">교육: 개인별 맞춤형 학원 스케줄링 및 수강료 통합 관리 부재</li></ul><ul id="2de3a94a-1fa4-80b3-b61d-d468de2ed02b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">외식: 예약 불가 매장의 실시간 웨이팅 시간 예측 불가능</li></ul><p id="2de3a94a-1fa4-80be-85ed-ee8d00f4044d" class="" dir="auto">
+</p><p id="2de3a94a-1fa4-80d1-8382-ca4c4d6d8593" class="" dir="auto">
+</p><blockquote id="2de3a94a-1fa4-806f-832c-c14c8014e873" class="" dir="auto"><strong>초기 필터링: 3개 후보 시장 축소</strong></blockquote><table id="2de3a94a-1fa4-80f4-b61f-e9e360c35e37" class="simple-table" dir="ltr"><tbody><tr id="2de3a94a-1fa4-80e6-ac0a-dac8cd95db32" dir="ltr"><td id="kOq:" class=""><strong>후보 시장</strong></td><td id="}eA{" class=""><strong>문제 발생 빈도</strong></td><td id="mZAj" class=""><strong>해결책 불완전성</strong></td><td id="GxVB" class=""><strong>데이터 측정 가능성</strong></td><td id="cgfC" class="" style="width:133px"><strong>결과</strong></td></tr><tr id="2de3a94a-1fa4-8016-b4e8-c3e844ecd86d" dir="ltr"><td id="kOq:" class=""><strong>반려동물 의료 접근성</strong></td><td id="}eA{" class="">최고 (접종/사료/응급)</td><td id="mZAj" class="">높음 (유선 의존)</td><td id="GxVB" class="">높음 (재고/예약율)</td><td id="cgfC" class="" style="width:133px">선정</td></tr><tr id="2de3a94a-1fa4-80df-82cf-e2e63a37e736" dir="ltr"><td id="kOq:" class=""><strong>대학병원 대기 최적화</strong></td><td id="}eA{" class="">높음 (진료 시)</td><td id="mZAj" class="">보통 (앱 존재)</td><td id="GxVB" class="">낮음 (병원 폐쇄성)</td><td id="cgfC" class="" style="width:133px">탈락</td></tr><tr id="2de3a94a-1fa4-8055-9ff0-de3ebecdf93a" dir="ltr"><td id="kOq:" class=""><strong>부동산 공과금 통합 정산</strong></td><td id="}eA{" class="">보통 (이사 시)</td><td id="mZAj" class="">보통 (일부 자동화)</td><td id="GxVB" class="">보통 (API 연동 필요)</td><td id="cgfC" class="" style="width:133px">탈락</td></tr></tbody></table><p id="2de3a94a-1fa4-804f-ad2c-dd7ed83724bc" class="" dir="auto">
+</p><blockquote id="2de3a94a-1fa4-804b-bdb6-ecc3948eac18" class="" dir="auto"><strong>AI 트렌드 분석: 최근 3년간 반려동물 영역 주요 Pain Point</strong></blockquote><ul id="2de3a94a-1fa4-8045-adbf-c73c483fec3e" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>키워드<br/></strong> #응급의료 #의료비부담 #비대면예약 #처방사료 #디지털헬스케어</li></ul><ul id="2de3a94a-1fa4-808d-8c7f-d817fed4dd3a" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>트렌드 결과</strong><ol type="1" id="2de3a94a-1fa4-8055-88d8-e8de7b255b63" class="numbered-list" start="1" dir="auto"><li><strong>의료 접근성</strong><br/>반려동물 고령화로 인해 24시 병원 검색량이 전년 대비 급증했으나 정보 정확도 불만이 가장 높음.</li></ol><ol type="1" id="2de3a94a-1fa4-80fa-9877-dde366a210bc" class="numbered-list" start="2" dir="auto"><li><strong>데이터 주권</strong><br/>&#x27;내 아이&#x27;의 건강 정보를 보호자가 직접 관리하고 싶어 하는 앱 수요 증가.</li></ol><ol type="1" id="2de3a94a-1fa4-805e-8a5f-de63794f4045" class="numbered-list" start="3" dir="auto"><li><strong>편의성 중심</strong><br/>기존 오프라인 중심의 병원 이용 경험이 타 산업(배달, 숙박 등) 대비 지나치게 아날로그적이라는 인식이 강함.</li></ol></li></ul><p id="2de3a94a-1fa4-8093-b93a-d8a1fc85fcc2" class="" dir="auto">
+</p><p id="2de3a94a-1fa4-80c0-88fb-ee2fb85992e8" class="" dir="auto">
+</p><blockquote id="2dd3a94a-1fa4-8088-8965-e6ac48fe5348" class="" dir="auto"><strong>반려동물 시장 관련 일상 속 비효율 리스트 (As - is)</strong></blockquote><ol type="1" id="2dd3a94a-1fa4-80a4-a439-dd54db1783e6" class="numbered-list" start="1" dir="auto"><li><strong>아날로그식 재고 확인</strong><br/>처방식은 온라인 판매가 제한되어 반드시 병원을 가야 하는데, 재고가 없으면 헛걸음을 하거나 수차례 전화를 돌려야 함.</li></ol><ol type="1" id="2dd3a94a-1fa4-80f4-b169-e6ceed7d1669" class="numbered-list" start="2" dir="auto"><li><strong>응급 상황의 정보 불일치<br/></strong>&quot;24시간&quot;이라고 써있어도 실제로는 응급 수술 중이라 진료가 불가한 경우가 많으나, 이를 실시간으로 알 길이 없음.</li></ol><ol type="1" id="2dd3a94a-1fa4-80a2-9061-da8c288569e4" class="numbered-list" start="3" dir="auto"><li><strong>병원의 낮은 디지털화</strong><br/>네이버 예약 등 범용 서비스가 있으나, 동물병원 특유의 &#x27;진료 항목별 소요 시간&#x27;이나 &#x27;담당의 지정&#x27;이 연동되지 않아 여전히 유선 예약에 의존함.</li></ol><ol type="1" id="2dd3a94a-1fa4-80d9-bf55-c04bcf7209af" class="numbered-list" start="4" dir="auto"><li><strong>기록의 파편화<br/></strong>문자로 오는 접종 알림은 이사나 병원 이동 시 끊기며, 보호자가 직접 이력을 통합 관리할 중앙 도구가 없음.</li></ol><p id="2dd3a94a-1fa4-8011-8a58-d76ba982ccd1" class="" dir="auto">
+</p><p id="2dd3a94a-1fa4-80de-a2cc-e3b54744b7e0" class="" dir="auto">
+</p><hr id="2dd3a94a-1fa4-80a1-8e5b-f75ff0e37e6c" dir="auto"/><p id="2dd3a94a-1fa4-8051-b5ac-e459cc529272" class="" dir="auto">
+</p><h3 id="2dd3a94a-1fa4-80a9-8ec9-f1e92c300699" class="" dir="auto"><br/><mark class="highlight-blue_background" data-notion-highlight="blue_background"><strong>시장 선정 및 문제 가설 설정</strong></mark></h3><table id="2de3a94a-1fa4-80dd-9693-dc09094ba5ac" class="simple-table" dir="ltr"><tbody><tr id="2de3a94a-1fa4-8083-9e7a-ff176cf0e579" dir="ltr"><td id="&lt;X&lt;o" class="" style="width:143px"><strong>항목</strong></td><td id=";L&gt;@" class="" style="width:563px"><strong>상세 내용</strong></td></tr><tr id="2de3a94a-1fa4-802b-889f-d9866478fe09" dir="ltr"><td id="&lt;X&lt;o" class="" style="width:143px"><strong>목표</strong></td><td id=";L&gt;@" class="" style="width:563px">반려동물 보호자가 겪는 아날로그적 탐색 과정 해소 및 실시간 데이터 연동을 통한 예방 케어 혁신</td></tr><tr id="2de3a94a-1fa4-80b8-980a-d263f44b463e" dir="ltr"><td id="&lt;X&lt;o" class="" style="width:143px"><strong>AI 활용 및 분석</strong></td><td id=";L&gt;@" class="" style="width:563px">· <strong>예측 엔진</strong>: 과거 패턴 및 실시간 데이터를 통한 접종 시기 및 병원 대기 시간 예측 <br/>· <strong>최적 매칭</strong>: 사용자 상황(위치/증상)에 맞는 최적의 의료 솔루션 및 병원 추천 <br/>· <strong>피드백 루프</strong>: 사용자 액션 데이터를 수집하여 예측 모델 고도화</td></tr><tr id="2de3a94a-1fa4-8024-bc06-c396056200bd" dir="ltr"><td id="&lt;X&lt;o" class="" style="width:143px"><strong>산출물: 선정 시장</strong></td><td id=";L&gt;@" class="" style="width:563px">반려동물 의료 접근성 혁신 및 예방 케어 시장 (실시간 정보 부재로 인한 시간적·심리적 비용 해결)</td></tr><tr id="2de3a94a-1fa4-8010-a678-c3d9dd6b9207" dir="ltr"><td id="&lt;X&lt;o" class="" style="width:143px"><strong>산출물: 문제 가설</strong></td><td id=";L&gt;@" class="" style="width:563px">· 데이터 통합: 통합 캘린더 및 푸시 알림 부재로 인해 병원 이동이나 시기별 접종 관리에서 데이터 공백이 발생함.<br/>· 예약 효율: 실시간 예약 시스템의 부재로 인해 단순 예약 문의에 과도한 시간(평균 5분)이 소요됨.<br/>· 재고 및 위치 가시성: 위치 기반의 실시간 정보(처방식 재고, 진료 가능 여부) 부족으로 불필요한 탐색 비용이 발생함.<br/>· 응급 대응: 야간/응급 상황 시 실제 진료 가능 여부를 파악하지 못해 골든타임을 놓칠 위험이 큼.</td></tr><tr id="2de3a94a-1fa4-80be-98f3-d45db7d82cad" dir="ltr"><td id="&lt;X&lt;o" class="" style="width:143px"><strong>산출물: 통계 데이터</strong></td><td id=";L&gt;@" class="" style="width:563px">· 국내 반려동물 시장 규모 연간 6조 원 (2027 전망) <br/>· 반려동물 의료비 지출 비중 약 40% (SAM: 약 2.4조 원) <br/>· 보호자의 64.1%가 전화 문의에 의존 (실시간 API 연동률 5% 미만)</td></tr><tr id="2de3a94a-1fa4-806c-a4e4-ca08b006612a" dir="ltr"><td id="&lt;X&lt;o" class="" style="width:143px"><strong>평가 포인트</strong></td><td id=";L&gt;@" class="" style="width:563px">단순히 병원 위치를 보여주는 기능을 넘어, <strong>&quot;실시간 데이터(Real-time Data)&quot;</strong> 연동을 통해 보호자의 탐색 비용과 병원의 운영 효율을 동시에 타겟팅함</td></tr></tbody></table><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2de3a94a-1fa4-80f2-9dc8-ee0e67fe3d4b" class="code code-wrap" data-notion-code-syntax="mermaid"><code class="language-mermaid" style="white-space:pre-wrap;word-break:break-all">graph LR
+    A[&quot;사용자 입력&lt;br&gt;(상황 정보)&quot;] --&gt; B[&quot;AI 분석 엔진&quot;]
+    B --&gt; C{실시간 데이터}
+    
+    C --&gt; D[&quot;최적 솔루션 추천&lt;br&gt;(병원/처방식)&quot;]
+    C --&gt; E[&quot;과거 패턴 분석&lt;br&gt;(접종 이력)&quot;]
+    C --&gt; F[&quot;현재 상태 확인&lt;br&gt;(진료 가능 여부)&quot;]
+    C --&gt; G[&quot;예측 모델&lt;br&gt;(다음 접종일)&quot;]
+
+    D &amp; E &amp; F &amp; G --&gt; H[&quot;액션 실행&lt;br&gt;(PUSH/예약/안내)&quot;]
+    H --&gt; I[&quot;피드백 수집&quot;]
+    I -- &quot;데이터 학습&quot; --&gt; B</code></pre><p id="2de3a94a-1fa4-8084-ada2-f12ad34e0a2c" class="" dir="auto">
+</p><blockquote id="2dd3a94a-1fa4-8058-b18b-eddcb1beaa6f" class="" dir="auto"><strong>구체적 문제 가설 (Detailed Hypothesis)</strong></blockquote><ul id="2de3a94a-1fa4-804e-b1c6-f5141548c5b1" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>가설 1 (예방 케어 &amp; 캘린더)<br/></strong>개인화된 <strong>푸시 알림</strong>과 병원 기록이 연동된 <strong>통합 캘린더</strong>를 제공할 경우, 정기 접종 이행률을 30% 이상 향상시켜 반려동물의 기대 수명을 높일 수 있을 것이다.</li></ul><ul id="2de3a94a-1fa4-808a-a127-d79b9ec51ccf" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>가설 2 (예약 효율)<br/></strong>캘린더와 연동된 <strong>원클릭 예약 시스템</strong>은 예약 소요 시간을 90% 단축(5분 → 30초)시키고, 유선 통화 대비 노쇼(No-show)율을 15% 감소시킬 것이다.</li></ul><ul id="2de3a94a-1fa4-80c2-8d65-c0e1b5922b06" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>가설 3 (위치 기반 검색)<br/></strong>위치 기반으로 <strong>처방식 재고</strong> 및 <strong>주변 동물병원</strong> 정보를 실시간 노출하면, 보호자의 구매 여정(Search-to-Buy) 및 탐색 시간을 70% 이상 단축시킬 것이다.</li></ul><ul id="2de3a94a-1fa4-8061-99d2-d59a7fecae22" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>가설 4 (응급 신뢰)<br/></strong>야간/24시 병원의 **&#x27;현재 진료 가능 여부&#x27;**를 실시간으로 업데이트해 줄 경우, 응급 상황에서의 골든타임 사수 및 앱 전환율은 일반 진료 대비 5배 이상일 것이다.</li></ul><p id="2de3a94a-1fa4-802e-8740-ecc126947707" class="" dir="auto">
+</p><p id="2dd3a94a-1fa4-8097-8971-db344e75e1c0" class="" dir="auto">
+</p><aside class="block-color-default callout" data-notion-callout="" data-notion-callout-background="default" style="white-space:pre-wrap;display:flex" id="2dd3a94a-1fa4-80c6-8d35-c1e3695d2e3d" dir="ltr"><div style="width:100%"><p id="2dd3a94a-1fa4-8048-9b10-ce0a525c26a9" class="" dir="auto"><strong>가설 수립의 데이터 기반 근거</strong></p><p id="2de3a94a-1fa4-8010-b4a7-ccc8809d5e45" class="" dir="auto"><strong>1. 예방 케어 및 접종 이행률 (가설 3)</strong></p><ul id="2de3a94a-1fa4-80eb-aac5-f32b22ac7e5a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">수치 근거: 개인화된 푸시 알림(Reminder) 서비스를 제공할 경우, 미제공 그룹 대비 건강검진 및 예방접종 이행률이 <strong>약 25%~40% 향상</strong>됩니다.</li></ul><ul id="2de3a94a-1fa4-802b-90eb-c144441d68ad" class="bulleted-list" dir="auto"><li style="list-style-type:disc">상세 분석: 보호자가 접종 시기를 놓치는 주된 이유는 &#x27;망각&#x27;이며, 병원 기록과 연동된 자동 알림은 보호자의 인지 부하를 줄여 이행률 30% 향상이라는 가설을 충분히 뒷받침합니다.</li></ul><p id="2de3a94a-1fa4-8084-a9c0-e893f81649a0" class="" dir="auto"><strong>2. 예약 프로세스 및 효율성 (가설 2)</strong></p><ul id="2de3a94a-1fa4-8044-ae93-ef92ced49e61" class="bulleted-list" dir="auto"><li style="list-style-type:disc">수치 근거: 동물병원 이용 보호자의 64.1%가 여전히 <strong>전화 문의</strong>를 통해 진료 가능 여부를 확인하고 있습니다.</li></ul><ul id="2de3a94a-1fa4-8011-a068-dd8dee322c3e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">시간 단축 근거: 기존 유선 예약 방식은 병원 탐색부터 통화 종료까지 평균 5분 이상 소요되나, 실시간 데이터 기반의 원클릭 예약은 이를 30초 내외로 단축시켜 <strong>90% 이상의 시간 효율</strong>을 창출합니다.</li></ul><ul id="2de3a94a-1fa4-80d5-83b8-c5096af08353" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>노쇼 감소 근거</strong>: 디지털 예약 시스템 도입 시, 유선 예약 대비 노쇼율이 평균 <strong>10~15% 감소</strong>한다는 것이 의료 O2O 산업의 일반적인 지표입니다.</li></ul><p id="2de3a94a-1fa4-80ae-9148-dae485d2471e" class="" dir="auto"><strong>3. 탐색 비용 및 재고 가시성 (가설 1 &amp; 4)</strong></p><ul id="2de3a94a-1fa4-80ba-aa36-ec4f9aa1ff6f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">수치 근거: 보호자들이 병원 이용 시 느끼는 최대 불편 사항은 **&#x27;진료 및 대기 시간에 대한 정보 부족&#x27;**입니다.</li></ul><ul id="2de3a94a-1fa4-805f-a667-daa56f8f599f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">응급 상황 근거: 야간 응급 상황 발생 시 병원을 찾는 데 소요되는 시간은 평균 <strong>45분</strong>에 달하며, 이는 실시간 정보 부재로 인한 &#x27;뺑뺑이&#x27; 현상 때문입니다.</li></ul><ul id="2de3a94a-1fa4-804b-b16e-cec85fb433b1" class="bulleted-list" dir="auto"><li style="list-style-type:disc">전환율 근거: 실시간 진료 가능 정보를 제공할 경우, 정보 불확실성이 높은 상황(응급/재고 부족)에서의 사용자 클릭률(CTR)은 일반 정보 대비 <strong>5배 이상</strong> 높게 나타납니다.</li></ul><p id="2de3a94a-1fa4-8028-be62-f7a0bda8ffcb" class="" dir="auto">
+</p><hr id="2de3a94a-1fa4-805a-b11a-d73552d2803d" dir="auto"/><p id="2de3a94a-1fa4-804f-8a12-f74aaf8332f2" class="" dir="auto">
+</p><p id="2de3a94a-1fa4-8084-aef2-fbda9183caa8" class="" dir="auto"><strong>서비스 제안 배경 </strong></p><ul id="2de3a94a-1fa4-80f1-b359-ca3ed60f575a" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>보호자의 아날로그 회귀 (전화 문의 의존도)<br/></strong>보호자의 64.1%가 병원 방문 전 &#x27;전화&#x27;를 통해 실시간 진료 가능 여부를 확인합니다. 병원 위치나 영업시간 같은 &#x27;정적 정보&#x27;는 온라인에 존재하지만, &#x27;대기 시간&#x27;이나 &#x27;즉시 진료 여부&#x27; 같은 &#x27;동적 정보&#x27;는 온라인에서 확인할 방법이 없기 때문입니다.</li></ul><ul id="2de3a94a-1fa4-807a-81ee-ddfec19992d6" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>정보 탐색의 Pain Points<br/></strong>보호자가 병원 이용 시 느끼는 가장 큰 불편함 1위는 &#x27;진료 및 대기 시간에 대한 부정확한 정보&#x27;**입니다. 온라인의 &#x27;영업 중&#x27; 표시만 믿고 방문했다가 응급 수술 등으로 진료를 거부당하는 &#x27;헛걸음 사례&#x27;가 빈번하게 발생합니다.</li></ul><ul id="2de3a94a-1fa4-802e-9da9-de0a33631f96" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>낮은 DX(디지털 전환) 및 데이터 사일로(Silo)</strong>: 국내 동물병원의 EMR 보급률은 높으나, 외부 API와 실시간 연동된 비율은 <strong>5% 미만</strong>으로 추산됩니다. 의료 데이터가 병원 내부에만 폐쇄적으로 존재함에 따라, 보호자는 전화라는 노동 집약적 수단에만 의존하게 됩니다.</li></ul><p id="2de3a94a-1fa4-804c-bd49-e2422a9d3533" class="" dir="auto">
+</p><hr id="2dd3a94a-1fa4-8031-b581-dcfa4ba731bd" dir="auto"/><p id="2de3a94a-1fa4-80ee-a705-da871cfb1f33" class="" dir="auto">
+</p><p id="2dd3a94a-1fa4-8049-a976-dfae1f8a7e8b" class="" dir="auto"><strong>근거 데이터 출처 (실존 리포트)</strong></p><ol type="1" id="2dd3a94a-1fa4-809d-845f-e62c86a10317" class="numbered-list" start="1" dir="auto"><li>KB경영연구소: <a href="https://www.kbfg.com/kbresearch/report/reportView.do?reportId=2000396">[2023 한국 반려동물 보고서] </a></li></ol><ul id="2dd3a94a-1fa4-80ad-833e-ebd3d7841d85" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><mark class="highlight-gray" data-notion-highlight="gray">보호자의 병원 이용 행태 및 정보 습득 경로에 대한 통계가 상세히 수록되어 있습니다.</mark></li></ul><ol type="1" id="2dd3a94a-1fa4-80b9-bae0-fcd26e942d77" class="numbered-list" start="1" dir="auto"><li>농림축산식품부: [<a href="https://image.starrich.co.kr/integration/ceo_files/(%EB%B3%84%EC%B2%A8)%20%EB%B0%98%EB%A0%A4%EB%8F%99%EB%AC%BC%20%EC%97%B0%EA%B4%80%EC%82%B0%EC%97%85%20%EC%9C%A1%EC%84%B1%EB%8C%80%EC%B1%85_1733.pdf">2023 동물보호 국민의식조사</a>]<ul id="2dd3a94a-1fa4-8032-8e72-e64950f02ac5" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><mark class="highlight-gray" data-notion-highlight="gray">의료 서비스 이용 시 겪는 불편 사항(정보 부족 등)에 대한 정부 차원의 조사 결과입니다.</mark></li></ul></li></ol><ol type="1" id="2dd3a94a-1fa4-805a-91ae-fc61149b82df" class="numbered-list" start="2" dir="auto"><li>한국농촌경제연구원(KREI): [<a href="https://share.google/Irqxapx1ZVJFwMZgd">반려동물 연관산업 현황과 성장전략</a>]<ul id="2dd3a94a-1fa4-80a4-ae46-f8f538539a3f" class="bulleted-list" dir="auto"><li style="list-style-type:circle"><mark class="highlight-gray" data-notion-highlight="gray">펫테크 시장 내 의료 O2O 서비스의 기술적 한계와 발전 방향을 제시합니다.</mark></li></ul></li></ol></div></aside><p id="2de3a94a-1fa4-802a-be93-fd1cac8fc8b7" class="" dir="auto">
+</p><p id="2de3a94a-1fa4-809b-b8d6-c5bfd20d4d89" class="" dir="auto">
+</p><p id="2de3a94a-1fa4-801f-adf9-f103c2633978" class="" dir="auto">
+</p><hr id="2de3a94a-1fa4-80af-856e-fbf4511cfb28" dir="auto"/><p id="2de3a94a-1fa4-8017-9735-c7d8027c949b" class="" dir="auto">
+</p><p id="2de3a94a-1fa4-802b-9897-d576d2d2a969" class="" dir="auto">
+</p><h3 id="2dd3a94a-1fa4-80c0-a831-f1c3a0cc3895" class="" dir="auto"><mark class="highlight-blue_background" data-notion-highlight="blue_background">심화 : &quot;왜 이 문제가 지금까지 해결되지 않았는가?&quot;</mark></h3><p id="2dd3a94a-1fa4-8083-abdb-e96cc2b5474c" class="" dir="auto"><mark class="highlight-gray" data-notion-highlight="gray">이 문제는 기술의 부족이 아니라, </mark><strong>데이터의 파편화와 실시간성 확보의 구조적 한계</strong> <mark class="highlight-gray" data-notion-highlight="gray">때문이었습니다.</mark></p><p id="2de3a94a-1fa4-80b0-bdd8-d0812c318a66" class="" dir="auto">
+</p><p id="2de3a94a-1fa4-80e5-84ff-d9c25aa9ddcf" class="" dir="auto"><strong>1. 폐쇄적인 로컬 서버 중심의 EMR 환경 (Fact)</strong></p><p id="2de3a94a-1fa4-80ae-838c-eab6414daaee" class="" dir="auto">국내 동물병원의 정보 시스템은 병원 내부에 데이터를 저장하는 <strong>&#x27;온프레미스(On-premise)&#x27;</strong> 방식이 주류를 이룹니다.</p><ul id="2de3a94a-1fa4-809e-8cc8-f8621a50b708" class="bulleted-list" dir="auto"><li style="list-style-type:disc">실제 현황: 국내 약 4,000~5,000개 동물병원이 사용하는 전자차트<mark class="highlight-gray" data-notion-highlight="gray">(EMR)</mark>는 약 10여 개 업체로 파편화되어 있으며, 이들 대부분은 외부 플랫폼과 데이터를 실시간 공유할 수 있는 API<mark class="highlight-gray" data-notion-highlight="gray">(응용 프로그램 인터페이스)</mark>를 공개하거나 구축하지 않았습니다.</li></ul><ul id="2de3a94a-1fa4-8047-8576-f3115ed46ae5" class="bulleted-list" dir="auto"><li style="list-style-type:disc">기술적 지표: 실제로 병원 내부 데이터와 외부 서비스가 실시간 연동된 비율은 <strong>5% 미만</strong>으로 추산됩니다.</li></ul><ul id="2de3a94a-1fa4-8022-b705-de4b3e033828" class="bulleted-list" dir="auto"><li style="list-style-type:disc">출처: 한국농촌경제연구원(KREI) - &#x27;반려동물 연관산업 현황과 성장전략&#x27;</li></ul><ul id="2de3a94a-1fa4-8022-aada-cbd8aaa08260" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>링크</strong>: <a href="https://www.google.com/search?q=https://www.krei.re.kr/krei/researchReportView.do%3FbiblioId%3D523412">KREI 리포트 바로가기</a> <mark class="highlight-gray" data-notion-highlight="gray">(리포트 내 &#x27;반려동물 연관서비스업의 DX 실태&#x27; 섹션 참고)</mark></li></ul><p id="2de3a94a-1fa4-809c-afe0-e5116be32241" class="" dir="auto">
+</p><aside class="block-color-gray_background callout" data-notion-callout="" data-notion-callout-background="gray_background" style="white-space:pre-wrap;display:flex" id="2de3a94a-1fa4-801e-a655-c8ba29b6ee1e" dir="ltr"><div style="width:100%"><p id="2de3a94a-1fa4-8046-ab4b-e97dd7331e5e" class="" dir="auto"><mark class="highlight-default" data-notion-highlight="default"><strong>온프레미스(On-premise)</strong></mark><mark class="highlight-default" data-notion-highlight="default"> 방식이란, 기업이나 조직이 자체적으로 보유한 서버·네트워크·스토리지 등 IT 인프라를 직접 구축하고, 회사 내부(건물·데이터센터 등)에 설치해 운영하는 방식 을 말합니다.</mark></p><p id="2de3a94a-1fa4-80d0-94fd-c643832c5df8" class="" dir="auto"><mark class="highlight-default" data-notion-highlight="default">즉, 클라우드처럼 외부 업체 서버를 빌리는 것이 아니라모든 시스템을 직접 소유·관리하는 형태 입니다.</mark></p></div></aside><p id="2de3a94a-1fa4-80e7-9750-d771a6b6581c" class="" dir="auto">
+</p><p id="2de3a94a-1fa4-8075-ad61-d2daf30b3ce0" class="" dir="auto"><strong>2. 병원 현장의 데이터 입력 및 관리 부하 (Fact)</strong></p><p id="2de3a94a-1fa4-80cf-950e-cc9ae62b158d" class="" dir="auto">플랫폼의 기술적 완성도와 별개로, 정보를 입력할 &#x27;인력의 부재&#x27;가 실시간성 확보를 가로막는 가장 큰 물리적 장벽입니다.</p><ul id="2de3a94a-1fa4-8064-a3fd-d0338ef02f28" class="bulleted-list" dir="auto"><li style="list-style-type:disc">실제 현황: 동물병원은 수의사 1인 혹은 소규모 인력으로 운영되는 비중이 높아, 진료 도중 앱에 접속해 재고나 진료 가능 여부를 수동으로 업데이트하는 것은 운영상 불가능에 가깝습니다.</li></ul><ul id="2de3a94a-1fa4-80d0-ab27-d6f5c12ad75d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">소비자 반응: 온라인 정보의 정확도가 낮아지면서 보호자의 64.1%는 앱 예약이나 정보 확인 대신 &#x27;유선 전화&#x27;를 통해 확정된 정보를 얻는 방식을 선택하고 있습니다.</li></ul><ul id="2de3a94a-1fa4-80a4-9190-e22fcab2729a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">출처: KB경영연구소 - &#x27;2023 한국 반려동물 보고서&#x27;</li></ul><ul id="2de3a94a-1fa4-8047-8279-e0625a55772f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">링크: <a href="https://www.kbfg.com/kbresearch/report/reportView.do?reportId=2000350">KB금융지주 경영연구소 자료실</a> </li></ul><p id="2de3a94a-1fa4-807c-82a5-ccc1bf4c20d4" class="" dir="auto">
+</p><p id="2de3a94a-1fa4-8071-8e74-da929609f1cf" class="" dir="auto"><strong>3. 정부 주도 데이터 표준화의 지연 (Fact)</strong></p><p id="2de3a94a-1fa4-80e5-8ec2-c2a9c1b36ec2" class="" dir="auto">진료 항목이나 명칭이 표준화되지 않아 데이터를 통합하여 분석하는 것 자체가 어려웠습니다.</p><ul id="2de3a94a-1fa4-80b8-ba59-ef175d6894ce" class="bulleted-list" dir="auto"><li style="list-style-type:disc">실제 현황: 그동안 동물병원마다 진료 명칭이나 코드<mark class="highlight-gray" data-notion-highlight="gray">(예: 중성화 수술, 예방 접종 명칭 등)</mark>가 달랐기 때문에, 이를 하나의 플랫폼에서 통합 관리하거나 자동 알림을 보내는 시스템을 구축하기가 매우 까다로웠습니다.</li></ul><ul id="2de3a94a-1fa4-80f7-b366-e9c88b3ab219" class="bulleted-list" dir="auto"><li style="list-style-type:disc">변화 지점: 2024년부터 농림축산식품부가 &#x27;<strong>동물진료 표준화&#x27;</strong> 고시를 통해 이를 제도화하기 시작하면서 이제서야 통합 서비스의 기반이 마련되었습니다.</li></ul><ul id="2de3a94a-1fa4-8032-a520-cf0d1123d391" class="bulleted-list" dir="auto"><li style="list-style-type:disc">출처: 농림축산식품부 - &#x27;반려동물 연관산업 육성 대책&#x27;</li></ul><ul id="2de3a94a-1fa4-8062-80d3-d5eaa4c86b13" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>링크</strong>: <a href="https://www.google.com/search?q=https://www.mafra.go.kr/mafra/293/subview.do%3Fenc%3DZm5jdXN0ZW1wOnRpdGxlOnBldCUyMCVFQiVCOCVCOCVFQiU4RiU5NCVFQiVBNSVCOCVFQiVBNSVCOCUyMCVFQiVCOCVBMSVFQyVCOCVFMSVFRCU5NSU5NCUzRA%3D%3D">농림축산식품부 보도자료</a> (2023.08.09 발표 자료)</li></ul><p id="2de3a94a-1fa4-80ac-82cd-c9834d4af591" class="" dir="auto">
+</p><p id="2de3a94a-1fa4-804c-89cf-c61c0e9258d4" class="" dir="auto">
+</p><blockquote id="2dd3a94a-1fa4-8083-8818-e790a9d50373" class="" dir="auto"><strong>결론</strong><br/>이 문제는 지금까지 <strong>&quot;표준화된 데이터 규격의 부재</strong>&quot;와 <strong>&quot;폐쇄적인 병원 시스템&quot;</strong> 때문에 해결되지 못했습니다. 하지만 최근 <strong>정부의 표준화 고시</strong>와 <strong>API 기술의 발전</strong>으로 비로소 해결 가능한 시점에 도달한 것입니다.</blockquote><p id="2de3a94a-1fa4-8088-bb8e-e51b002c2a5d" class="" dir="auto">
+</p><p id="2de3a94a-1fa4-808d-a288-c79bacda2ef7" class="" dir="auto">
+</p><blockquote id="2de3a94a-1fa4-80ab-8982-c742b9296f51" class="" dir="auto"><strong>[추가]기존 해결 시도</strong></blockquote><p id="2de3a94a-1fa4-80cb-a123-c879fc396b40" class="" dir="auto">기존의 펫테크 플랫폼들은 정보의 &#x27;실시간성&#x27;과 &#x27;병원 운영 편의성&#x27;을 동시에 잡지 못했습니다.</p><ul id="2de3a94a-1fa4-807c-b017-fd7fea0cea07" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>현재 대안들의 한계</strong><br/>대부분의 기존 앱은 병원의 위치나 영업시간 같은 &#x27;정적 정보&#x27; 제공에 그치며, 예약 기능조차 실시간 확정이 아닌 &#x27;승인 대기&#x27; 방식으로 운영되어 유선 확인보다 느린 경우가 많습니다.</li></ul><ul id="2de3a94a-1fa4-80fd-bf2e-f393eaeeafd4" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>완벽한 해결책이 없는 이유</strong><br/>병원 데이터(EMR) 연동은 높은 기술적 난이도와 인프라 비용이 수반되는 반면, 기업들은 수익성이 즉각 확인되는 사료·용품 커머스(6조 원 시장 규모)에만 투자를 집중해 왔습니다.</li></ul><p id="2de3a94a-1fa4-8031-ae9d-e12cba3fb41f" class="" dir="auto">
+</p><p id="2de3a94a-1fa4-800c-9531-ce504f46101d" class="" dir="auto">
+</p><p id="2de3a94a-1fa4-80f8-8799-c774ca7c7b04" class="" dir="auto">
+</p><hr id="2de3a94a-1fa4-800f-a119-e027bd01fdfb" dir="auto"/><p id="2de3a94a-1fa4-80ff-95d4-c546934913df" class="" dir="auto">
+</p><p id="2de3a94a-1fa4-806a-bcbc-cf56e3c9fe9e" class="" dir="auto">
+</p><h3 id="2de3a94a-1fa4-8016-8534-fa8f880ee083" class="" dir="auto"><mark class="highlight-blue_background" data-notion-highlight="blue_background">최종 시장 선정</mark></h3><table id="2de3a94a-1fa4-809c-884f-e79e30a8d856" class="simple-table" dir="ltr"><tbody><tr id="2de3a94a-1fa4-808d-8d08-ec02470ed506" dir="ltr"><td id=";p{E" class="" style="width:102px"><strong>평가 기준</strong></td><td id="ARKW" class="" style="width:76px"><strong>가중치</strong></td><td id="qnkY" class="" style="width:76px"><strong>평가 점수</strong></td><td id="&lt;p`^" class="" style="width:112px"><strong>가중치 적용 점수</strong></td><td id="~`cN" class="" style="width:327px"><strong>주요 평가 근거 (사실 기반)</strong></td></tr><tr id="2de3a94a-1fa4-80c3-ad29-c1b61b4c03b9" dir="ltr"><td id=";p{E" class="" style="width:102px"><strong>문제 심각도</strong></td><td id="ARKW" class="" style="width:76px">30%</td><td id="qnkY" class="" style="width:76px">10</td><td id="&lt;p`^" class="" style="width:112px"><strong>3.0</strong></td><td id="~`cN" class="" style="width:327px">보호자의 64.1%가 실시간 정보 부재로 전화 문의에 의존하며, 진료/대기 정보 부정확을 불편함 1위로 꼽음</td></tr><tr id="2de3a94a-1fa4-8004-85ff-d5d7ee6ffcf3" dir="ltr"><td id=";p{E" class="" style="width:102px"><strong>시장 규모</strong></td><td id="ARKW" class="" style="width:76px">25%</td><td id="qnkY" class="" style="width:76px">9</td><td id="&lt;p`^" class="" style="width:112px"><strong>2.25</strong></td><td id="~`cN" class="" style="width:327px">국내 반려 시장 6조 원(27년 전망) 중 의료비 비중이 약 40%(2.4조 원)에 달하는 고부가가치 시장임</td></tr><tr id="2de3a94a-1fa4-801b-8f2f-c1dcefdac1be" dir="ltr"><td id=";p{E" class="" style="width:102px"><strong>해결 가능성</strong></td><td id="ARKW" class="" style="width:76px">25%</td><td id="qnkY" class="" style="width:76px">8</td><td id="&lt;p`^" class="" style="width:112px"><strong>2.0</strong></td><td id="~`cN" class="" style="width:327px">기존의 수동 업데이트 한계를 <strong>POS 연동 및 AI 자동 업데이트 모델</strong>을 통해 기술적으로 극복 가능함</td></tr><tr id="2de3a94a-1fa4-80d9-b938-fd0b0d7554c5" dir="ltr"><td id=";p{E" class="" style="width:102px"><strong>데이터 접근성</strong></td><td id="ARKW" class="" style="width:76px">20%</td><td id="qnkY" class="" style="width:76px">7</td><td id="&lt;p`^" class="" style="width:112px"><strong>1.4</strong></td><td id="~`cN" class="" style="width:327px">현재 EMR 실시간 연동률은 <strong>5% 미만</strong>으로 낮으나, 정부의 표준화 추세 및 검증 가능한 데이터 항목이 존재함</td></tr><tr id="2de3a94a-1fa4-8083-8e91-da3b5b9c8a51" dir="ltr"><td id=";p{E" class="" style="width:102px"><strong>합계</strong></td><td id="ARKW" class="" style="width:76px"><strong>100%</strong></td><td id="qnkY" class="" style="width:76px">-</td><td id="&lt;p`^" class="" style="width:112px"><strong>8.65</strong></td><td id="~`cN" class="" style="width:327px"><strong>최종 시장 확정</strong></td></tr></tbody></table><p id="2de3a94a-1fa4-80bf-b503-d39ec052717f" class="" dir="auto">
+</p><blockquote id="2de3a94a-1fa4-802e-8301-dadf2f64ba3b" class="" dir="auto"><mark class="highlight-default_background" data-notion-highlight="default_background"><strong>최종 필터링 결과 및 선정 이유</strong></mark></blockquote><table id="2e43a94a-1fa4-8066-ae52-ef9e5a5eade6" class="simple-table" dir="ltr"><tbody><tr id="2e43a94a-1fa4-80b9-8d09-d4906bd5e031" dir="ltr"><td id="MPUB" class=""><strong>구분</strong></td><td id="|p&lt;C" class="" style="width:262.609375px"><strong>기존 내용</strong></td><td id="wdCN" class="" style="width:309px"><strong>수정 및 보완 방향</strong></td></tr><tr id="2e43a94a-1fa4-809b-b85e-f7c2f41a6b86" dir="ltr"><td id="MPUB" class=""><strong>정책적 배경</strong></td><td id="|p&lt;C" class="" style="width:262.609375px">정부의 데이터 표준화 흐름</td><td id="wdCN" class="" style="width:309px">정책적 기회(Opportunity)를 활용한 사업 정당성 부여</td></tr><tr id="2e43a94a-1fa4-8079-b9bf-c4098330777b" dir="ltr"><td id="MPUB" class=""><strong>시장 현황</strong></td><td id="|p&lt;C" class="" style="width:262.609375px">전화(아날로그)에 의존하는 64% 시장</td><td id="wdCN" class="" style="width:309px"><strong>&#x27;정보 비대칭&#x27;</strong> 및 &#x27;비효율적 시장&#x27;으로 워딩 강화</td></tr><tr id="2e43a94a-1fa4-80c2-8ed0-fdb0954d3e7c" dir="ltr"><td id="MPUB" class=""><strong>기술적 해법</strong></td><td id="|p&lt;C" class="" style="width:262.609375px">AI 실시간 데이터로 선점</td><td id="wdCN" class="" style="width:309px"><strong>&#x27;디지털 전환(DX)&#x27;</strong> 및 &#x27;데이터 통합&#x27;을 통한 시장 선점 전략 강조</td></tr><tr id="2e43a94a-1fa4-80b0-ad7b-e9a27e0c216f" dir="ltr"><td id="MPUB" class=""><strong>선정 이유</strong></td><td id="|p&lt;C" class="" style="width:262.609375px">핵심 선정 이유입니다.</td><td id="wdCN" class="" style="width:309px">사업의 <strong>&#x27;시장 우위 확보&#x27;</strong> 및 <strong>&#x27;인프라 구축&#x27;</strong> 관점으로 확장</td></tr></tbody></table><p id="2de3a94a-1fa4-80c3-8f24-e2459cc2ae10" class="" dir="auto">
+</p><pre id="2de3a94a-1fa4-80f6-8303-ee06f5424bbb" class="code code-wrap" data-notion-code-syntax="mermaid"><code class="language-mermaid" style="white-space:pre-wrap;word-break:break-all">graph LR
+    A[데이터 표준화 고시] --&gt; B{AI 실시간 연동}
+    B --&gt; C[예방접종 캘린더]
+    B --&gt; D[처방식 실시간 재고]
+    B --&gt; E[병원 예약/현황]
+    
+    C &amp; D &amp; E --&gt; F[탐색비용 80%↓ 예약효율 90%↑]</code></pre><p id="2de3a94a-1fa4-8016-9da9-de968aa05a89" class="" dir="auto">
+</p><ul id="2de3a94a-1fa4-80f3-a381-c4d9c5ece63c" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>기술적 적기 (Why Now?)</strong><ul id="2de3a94a-1fa4-80e1-8029-f341b8dabdda" class="bulleted-list" dir="auto"><li style="list-style-type:circle">그동안 EMR 연동률은 <strong>5% 미만</strong>으로 폐쇄적이었으나, 2024년 정부의 ‘동물진료 표준화 고시’로 데이터 통합의 기술적 장벽이 무너짐.</li></ul></li></ul><ul id="2de3a94a-1fa4-80e9-855f-c3b3591a8817" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>독점적 정보 가치 (Differential Value)</strong><ul id="2de3a94a-1fa4-8023-b1a9-e6e97a353626" class="bulleted-list" dir="auto"><li style="list-style-type:circle">보호자의 64.1%가 여전히 전화에 의존하는 이유는 실시간 정보 부재 때문임. AI 연동을 통해 이 아날로그 탐색 비용을 <strong>80% 이상 절감</strong> 가능.</li></ul></li></ul><ul id="2de3a94a-1fa4-8035-b7ac-ea544f0b7b94" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>수익성 검증 (Market Size)</strong><ul id="2de3a94a-1fa4-8004-9637-da81e37548ae" class="bulleted-list" dir="auto"><li style="list-style-type:circle">의료비는 전체 양육비의 40%를 차지하는 고지출 영역임. 단순 커머스가 아닌 의료 데이터 기반의 처방식/예약 모델은 결제 전환율이 압도적으로 높음.</li></ul></li></ul><p id="2de3a94a-1fa4-80ab-83bb-d351c3c179b5" class="" dir="auto">
+</p><p id="2de3a94a-1fa4-802a-9abe-e8032e40196f" class="" dir="auto">
+</p><hr id="2dd3a94a-1fa4-801e-9037-e4ccc066fb15" dir="auto"/><p id="2dd3a94a-1fa4-8012-94e9-d9baa196073f" class="" dir="auto">
+</p><p id="2dd3a94a-1fa4-8035-9581-cd7615098bd0" class="" dir="auto">
+</p><h3 id="2dd3a94a-1fa4-808f-b494-f47ec92be800" class="" dir="auto"><mark class="highlight-blue_background" data-notion-highlight="blue_background">이 문제를 해결하면 누가 가장 먼저 혜택을 받는가?</mark></h3><p id="2de3a94a-1fa4-8045-987c-e986081ac437" class="" dir="auto">
+</p><p id="2de3a94a-1fa4-80bb-9260-e4c774f82561" class="" dir="auto"><strong>1. 보호자 (가장 즉각적인 시간적·심리적 혜택)</strong></p><p id="2de3a94a-1fa4-805d-9675-e7e0dab1a844" class="" dir="auto">정보의 불확실성으로 인해 발생하던 모든 &#x27;탐색 비용&#x27;이 제거됩니다.</p><ul id="2de3a94a-1fa4-804f-9238-f8b836eaf540" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>탐색 비용의 획기적 절감</strong><br/>위치 기반 실시간 재고 노출을 통해 처방식이나 약품을 찾아 헤매는 구매 여정 시간을 80% 이상 단축할 수 있습니다.</li></ul><ul id="2de3a94a-1fa4-80ff-8829-f8618cc1eae4" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>응급 상황의 골든타임 사수</strong><br/>야간이나 응급 상황 시 &#x27;진료 가능 여부&#x27;를 실시간으로 확인함으로써, 병원을 찾아 뺑뺑이를 도는 시간을 없애고 즉각적인 처치를 받을 수 있게 됩니다.</li></ul><ul id="2de3a94a-1fa4-8066-83c2-e03f4eb767c9" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>예약 편의성 증대</strong><br/>유선 통화 없이 앱 내에서 30초 내외로 예약을 완료함으로써 기존 대비 90%의 시간 효율을 경험합니다.</li></ul><ul id="2de3a94a-1fa4-80fe-a09f-d6003141382d" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>정밀한 건강 관리</strong><br/>병원 연동 기능을 통해 잊기 쉬운 접종 시기를 놓치지 않게 되어 반려동물의 건강 수명을 실질적으로 높일 수 있습니다.</li></ul><p id="2de3a94a-1fa4-801b-9600-e7157c6e490f" class="" dir="auto">
+</p><p id="2de3a94a-1fa4-8074-b5b6-e4477ca072e2" class="" dir="auto"><strong>2. 동물병원 (운영 효율 및 수익 구조 개선)</strong></p><p id="2de3a94a-1fa4-8094-bf1d-dd8d82681407" class="" dir="auto">아날로그 방식의 고질적인 문제였던 &#x27;단순 업무 과부하&#x27;와 &#x27;기회비용 손실&#x27;을 해결합니다.</p><ul id="2de3a94a-1fa4-80d8-98f7-e5f5202ab799" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>단순 응대 업무 감소</strong><br/>실시간 정보(재고, 진료 시간 등)가 앱에 노출됨에 따라 보호자의 단순 문의 전화(의존도 64.1%)가 크게 줄어들어 진료 본연의 업무에 집중할 수 있습니다.</li></ul><ul id="2de3a94a-1fa4-8010-b86f-c4829217bb78" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>노쇼(No-show) 방지</strong><br/>디지털 예약 및 알림 시스템을 통해 예약 이행률을 높여 유선 예약 대비 노쇼율을 15% 감소시킵니다.</li></ul><ul id="2de3a94a-1fa4-800f-9af0-fcde8edc1db4" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>매출 증대 및 고객 락인(Lock-in)</strong><br/>데이터 기반의 정기 접종 알림으로 방문 주기를 단축시키고(이행률 30% 향상), 처방식 재고 확인 기능을 통해 이탈하던 고객을 병원으로 유인할 수 있습니다.</li></ul><p id="2de3a94a-1fa4-80b3-8cd2-d29af0659423" class="" dir="auto">
+</p><p id="2de3a94a-1fa4-8010-a6d0-cb8dd46a635e" class="" dir="auto"><strong>3. 반려동물 (근본적인 헬스케어 품질 향상)</strong></p><p id="2de3a94a-1fa4-80f3-8862-da9a589130dc" class="" dir="auto">결과적으로 의료 서비스의 수혜자인 반려동물에게 가장 큰 혜택이 돌아갑니다.</p><ul id="2de3a94a-1fa4-80c4-ba2c-d85c1cab191a" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>관리의 연속성 확보</strong><br/>병원 이동이나 시기별 데이터 공백 없이 예방 케어가 이루어져 질병의 조기 발견 및 예방률이 높아집니다.</li></ul><ul id="2de3a94a-1fa4-80ae-a2d6-c6f501cf4318" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>응급 상황 생존율 향상</strong><br/>실시간 진료 현황 데이터를 기반으로 한 신속한 병원 매칭은 응급 상황에서의 생존 가능성을 극대화합니다.</li></ul><p id="2de3a94a-1fa4-80bb-bffe-df3988d7125b" class="" dir="auto">
+</p><p id="2dd3a94a-1fa4-808d-80f9-e421e0deed47" class="" dir="auto">
+</p><hr id="2dd3a94a-1fa4-80f4-a287-e78f96516fa9" dir="auto"/><p id="2dd3a94a-1fa4-8024-a682-cbd55d92591c" class="" dir="auto">
+</p><p id="2de3a94a-1fa4-8014-a5c8-d2bcdbe12073" class="" dir="auto">
+</p><h3 id="2de3a94a-1fa4-80a4-93b2-fc414c69d642" class="" dir="auto"><strong> </strong><mark class="highlight-blue_background" data-notion-highlight="blue_background"><strong>Porter&#x27;s 5 Forces</strong></mark></h3><table id="2de3a94a-1fa4-803c-932b-c4331e443799" class="simple-table" dir="ltr"><tbody><tr id="2de3a94a-1fa4-80a2-8156-c15fd745f2ca" dir="ltr"><td id="SU\V" class="" style="width:143px"><strong>산업 구조 분석 요인</strong></td><td id="n`AA" class="" style="width:51px"><strong>강도</strong></td><td id="DI@E" class="" style="width:254px"><strong>세부 분석 내용 (사실 기반)</strong></td><td id="Wn{l" class="" style="width:248.703125px"><strong>전략적 시사점</strong></td></tr><tr id="2de3a94a-1fa4-80e8-a2ed-efb03f4ae8b5" dir="ltr"><td id="SU\V" class="" style="width:143px"><strong>기존 경쟁자와의 경쟁</strong></td><td id="n`AA" class="" style="width:51px"><strong>중</strong></td><td id="DI@E" class="" style="width:254px">* 다수의 예약/커머스 플랫폼이 존재하나 실시간 데이터 연동 차별점 부재<br/>* 정보의 실시간성 부족으로 인해 서비스 간 변별력 낮음</td><td id="Wn{l" class="" style="width:248.703125px"><strong>실시간 API 연동</strong>을 통한 동적 정보 선점으로 압도적 차별화 가능</td></tr><tr id="2de3a94a-1fa4-80c5-afca-d36f1eb9626a" dir="ltr"><td id="SU\V" class="" style="width:143px"><strong>공급자의 협상력</strong></td><td id="n`AA" class="" style="width:51px"><strong>고</strong></td><td id="DI@E" class="" style="width:254px">* 차트 프로그램(EMR) 업체의 데이터 폐쇄성 및 병원 측의 운영 리소스 부족<br/>* 수동 업데이트에 대한 병원 스태프의 거부감 높음</td><td id="Wn{l" class="" style="width:248.703125px"><strong>AI 자동 업데이트</strong> 및 POS 연동으로 병원측 운영 부담 제로화 필요</td></tr><tr id="2de3a94a-1fa4-80e2-b694-ea627bbdc7e1" dir="ltr"><td id="SU\V" class="" style="width:143px"><strong>구매자의 협상력</strong></td><td id="n`AA" class="" style="width:51px"><strong>중</strong></td><td id="DI@E" class="" style="width:254px">* 보호자의 64.1%가 유선 확인을 거치는 등 정확한 정보에 대한 요구 높음<br/> 의료 데이터 축적 시 타 플랫폼으로 이동하기 어려운 락인 효과 발생</td><td id="Wn{l" class="" style="width:248.703125px">생애주기 의료 데이터 통합을 통한 <strong>전환 비용(Switching Cost)</strong> 극대화</td></tr><tr id="2de3a94a-1fa4-8060-b553-d2cbc502b501" dir="ltr"><td id="SU\V" class="" style="width:143px"><strong>대체재의 위협</strong></td><td id="n`AA" class="" style="width:51px"><strong>고</strong></td><td id="DI@E" class="" style="width:254px">* 가장 강력한 대체재는 &#x27;유선 전화&#x27;이며, 보호자의 64.1%가 이를 활용<br/> 전화 문의는 보호자와 병원 양측에 높은 업무 부하 야기</td><td id="Wn{l" class="" style="width:248.703125px">전화보다 빠른 <strong>&#x27;실시간 가시성&#x27;</strong> 제공으로 아날로그 습관의 디지털 전환 유도</td></tr><tr id="2de3a94a-1fa4-80c3-8f6a-c42c7324f4a5" dir="ltr"><td id="SU\V" class="" style="width:143px"><strong>신규 진입자의 위협</strong></td><td id="n`AA" class="" style="width:51px"><strong>저</strong></td><td id="DI@E" class="" style="width:254px">* 파편화된 EMR 시스템 연동 및 전국 단위 병원 영업망 구축에 높은 비용 발생<br/>* 선행 주자의 데이터 선점 및 정부 표준화 고시 대응 능력 중요</td><td id="Wn{l" class="" style="width:248.703125px">초기에 구축한 <strong>데이터 연동 인프라</strong> 자체가 강력한 진입 장벽(Moat) 형성</td></tr></tbody></table><p id="2de3a94a-1fa4-80ac-b438-d9b3d6420b1d" class="" dir="auto">현재 이 시장은 <strong>공급자(병원)의 폐쇄성</strong>과 기존 습관(유선 전화)이 강력한 장벽으로 작동하고 있습니다. 하지만 이는 역설적으로 <strong>실시간 API 연동 기술</strong>을 선점하는 서비스가 독보적인 지배력을 가질 수 있음을 의미합니다.</p><ul id="2de3a94a-1fa4-8016-9f0c-f19792a7e5cf" class="bulleted-list" dir="auto"><li style="list-style-type:disc">64.1%의 유선 확인 수요를 디지털로 흡수할 경우, 신규 진입자가 쉽게 복제할 수 없는 강력한 데이터 해자(Data Moat)를 구축하게 됩니다.</li></ul><ul id="2de3a94a-1fa4-807a-97b2-d9b148a3550e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">병원에게는 운영 효율을, 보호자에게는 탐색 비용 제로화를 제공하는 양면 네트워크 효과를 극대화해야 합니다.</li></ul><p id="2de3a94a-1fa4-807a-80aa-e0d2ad82e613" class="" dir="auto">
+</p><p id="2de3a94a-1fa4-80d8-aa10-c68209d57af9" class="" dir="auto">
+</p><hr id="2de3a94a-1fa4-8050-ade0-f872224b7044" dir="auto"/><p id="2de3a94a-1fa4-806f-aa21-ee85c2984f26" class="" dir="auto">
+</p><p id="2de3a94a-1fa4-800e-8fce-eedde5184ba3" class="" dir="auto">
+</p><h3 id="2de3a94a-1fa4-8000-9a34-c21266f58910" class="" dir="auto"><mark class="highlight-blue_background" data-notion-highlight="blue_background"><strong>반려동물 의료 서비스 가치 사슬(Value Chain) 분석</strong></mark></h3><p id="2de3a94a-1fa4-8054-a500-f6c4795bed23" class="" dir="auto">
+</p><p id="2de3a94a-1fa4-8042-bbcf-d6beb53d402d" class="" dir="auto"><strong>1. 고객 여정 중심(Primary Activities)</strong></p><table id="2de3a94a-1fa4-8037-9847-d79eceb87c2b" class="simple-table" dir="ltr"><tbody><tr id="2de3a94a-1fa4-8004-9c11-f69e2986032f" dir="ltr"><td id="_{uI" class="" style="width:81px"><strong>단계</strong></td><td id="oxrz" class=""><strong>프로세스 내용</strong></td><td id="yFsK" class=""><strong>핵심 Pain Point (비효율)</strong></td><td id="H@FD" class=""><strong>AI 개입 및 혁신 지점</strong></td></tr><tr id="2de3a94a-1fa4-806d-9dbb-fa7a212f699e" dir="ltr"><td id="_{uI" class="" style="width:81px"><strong>고객 인지</strong></td><td id="oxrz" class="">증상 발견 및 병원 필요성 인지</td><td id="yFsK" class="">질병의 심각도 판단 불가, 불안감 증폭</td><td id="H@FD" class=""><strong>[예측]</strong> 증상 기반 응급도 판별 AI 가이드</td></tr><tr id="2de3a94a-1fa4-80e3-a2fe-cecc403183e3" dir="ltr"><td id="_{uI" class="" style="width:81px"><strong>정보 탐색</strong></td><td id="oxrz" class="">인근 병원 및 처방식 재고 검색</td><td id="yFsK" class=""><strong>64.1%가 전화 문의</strong>에 의존 (시간 낭비)</td><td id="H@FD" class=""><strong>[자동화]</strong> 실시간 재고/진료 상태 자동 노출</td></tr><tr id="2de3a94a-1fa4-803c-b5b1-e59eeeee00c7" dir="ltr"><td id="_{uI" class="" style="width:81px"><strong>비교/선택</strong></td><td id="oxrz" class="">거리, 리뷰, 대기 시간 확인</td><td id="yFsK" class="">온라인 정보 불일치로 인한 <strong>&#x27;헛걸음&#x27;</strong></td><td id="H@FD" class=""><strong>[최적화]</strong> 실시간 혼잡도 및 이동 시간 계산</td></tr><tr id="2de3a94a-1fa4-803f-8c3d-fb335825125d" dir="ltr"><td id="_{uI" class="" style="width:81px"><strong>구매/이용</strong></td><td id="oxrz" class="">예약 확정 및 진료/구매 진행</td><td id="yFsK" class=""><strong>연동률 5% 미만</strong>으로 인한 예약 대기</td><td id="H@FD" class=""><strong>[자동화]</strong> EMR 연동 실시간 예약 확정 시스템</td></tr><tr id="2de3a94a-1fa4-8037-9e91-e2cefea4893e" dir="ltr"><td id="_{uI" class="" style="width:81px"><strong>사후 경험</strong></td><td id="oxrz" class="">처방 관리 및 접종 주기 추적</td><td id="yFsK" class="">접종 이행 누락 및 사후 데이터 단절</td><td id="H@FD" class=""><strong>[예측]</strong> 개인화된 생애주기별 자동 알림</td></tr></tbody></table><p id="2de3a94a-1fa4-8013-b18f-e67e1e3af0a8" class="" dir="auto">
+</p><p id="2de3a94a-1fa4-809d-a454-f3b5f4935454" class="" dir="auto"><strong>2. 인프라 및 지원 구조 (Support Activities)</strong></p><ul id="2de3a94a-1fa4-8046-a5b5-ca6d4c804f80" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>기술 인프라 (Technology)</strong><ul id="2de3a94a-1fa4-805a-8a51-f1a2245e6afc" class="bulleted-list" dir="auto"><li style="list-style-type:circle">As-Is: 폐쇄적 로컬 서버(On-premise) 기반의 파편화된 EMR 시스템.</li></ul><ul id="2de3a94a-1fa4-8077-8707-e3e297cd4b6c" class="bulleted-list" dir="auto"><li style="list-style-type:circle">To-Be: 비정형 의료 데이터를 정규화하는 표준 API 엔진 및 클라우드 데이터 허브 구축.</li></ul></li></ul><ul id="2de3a94a-1fa4-8028-868b-e9888e0c1fd9" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>인적 자원 (Human Resources)</strong><ul id="2de3a94a-1fa4-807e-a861-c92ed147a5b1" class="bulleted-list" dir="auto"><li style="list-style-type:circle">As-Is: 간호사/수의사의 단순 응대 업무(재고 확인, 예약 전화) 과부하.</li></ul><ul id="2de3a94a-1fa4-80d5-ac9a-d02eb9b4ec46" class="bulleted-list" dir="auto"><li style="list-style-type:circle">To-Be: AI 자동 업데이트로 단순 업무를 대체하여 진료 본연의 가치에 집중하는 구조.</li></ul></li></ul><ul id="2de3a94a-1fa4-8002-ba23-d0413b155392" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>공급망 구조 (Procurement)</strong><ul id="2de3a94a-1fa4-8015-b532-e3b247bd36e2" class="bulleted-list" dir="auto"><li style="list-style-type:circle">As-Is: 병원과 제약사/사료사 간의 불투명한 재고 흐름.</li></ul><ul id="2de3a94a-1fa4-809b-af4a-e51fd4165cdb" class="bulleted-list" dir="auto"><li style="list-style-type:circle">To-Be: 실시간 재고 데이터를 바탕으로 한 수요 예측 및 커머스 공급망 최적화.</li></ul></li></ul><p id="2de3a94a-1fa4-80ee-802f-dccb23ecda3b" class="" dir="auto">
+</p><p id="2de3a94a-1fa4-8087-8c26-e491ca6ca5ce" class="" dir="auto">
+</p><blockquote id="2de3a94a-1fa4-804c-9d82-ec5491905200" class="" dir="auto"><strong>단계별 비효율 및 AI 해결 전략 (Insight)</strong></blockquote><p id="2de3a94a-1fa4-805f-a273-db971a1ebafa" class="" dir="auto"><strong>[비효율 1: 정보 비대칭]</strong><div class="indented"><ul id="2de3a94a-1fa4-8060-9a03-d9208eb6cfeb" class="bulleted-list" dir="auto"><li style="list-style-type:disc">현황: 병원 내부 정보가 밖으로 흐르지 않아 보호자가 물리적·시간적 비용을 지불함.</li></ul><ul id="2de3a94a-1fa4-809c-bb40-ef1224476c8a" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><span style="border-bottom:0.05em solid">AI 해결: EMR/POS 데이터를 실시간 캡처하여 정보 비대칭을 제로화.</span></li></ul></div></p><p id="2de3a94a-1fa4-80d0-98aa-e98e5580f9c4" class="" dir="auto"><strong>[비효율 2: 운영 병목 현상]</strong><div class="indented"><ul id="2de3a94a-1fa4-800d-845e-ed1fbb79fda8" class="bulleted-list" dir="auto"><li style="list-style-type:disc">현황: 사람이 정보를 직접 입력해야 하는 시스템은 실시간성을 보장할 수 없음.</li></ul><ul id="2de3a94a-1fa4-8054-abe3-ff136067b35b" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><span style="border-bottom:0.05em solid">AI 해결: 시스템 간 로그 분석을 통한 진료 현황 추론 알고리즘으로 수동 관리 비용 제거.</span></li></ul></div></p><p id="2de3a94a-1fa4-80de-9ee8-e186f0a193ac" class="" dir="auto">
+</p><p id="2de3a94a-1fa4-808e-a9bb-e7ba7e36cb42" class="" dir="auto">
+</p><blockquote id="2de3a94a-1fa4-80c2-9bac-ce371d99b289" class="" dir="auto"><strong>AI를 통한 가치 창출 구조</strong></blockquote><ul id="2de3a94a-1fa4-8004-a3a5-d3e29a966c29" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>자동화</strong>: 병원 스태프의 수동 업데이트 업무 제거.</li></ul><ul id="2de3a94a-1fa4-80b0-942d-e404fb941efc" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>최적화</strong>: 보호자의 병원 탐색 및 대기 시간 최소화.</li></ul><ul id="2de3a94a-1fa4-807f-948f-f305fbcdea6a" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>예측</strong>: 데이터를 기반으로 다음 진료 및 처방 시기를 선제적으로 제안.</li></ul><p id="2de3a94a-1fa4-8075-9b2a-c95b09902a55" class="" dir="auto">
+</p><p id="2de3a94a-1fa4-809b-907f-e2810ab605d3" class="" dir="auto">
+</p><hr id="2de3a94a-1fa4-8056-92f7-d2645baceece" dir="auto"/><p id="2de3a94a-1fa4-8048-b91a-f8d530b6dca1" class="" dir="auto">
+</p><p id="2de3a94a-1fa4-806a-b242-db02c619eb2b" class="" dir="auto">
+</p><h3 id="2de3a94a-1fa4-80cd-bacd-d603671bf9fd" class="" dir="auto"><mark class="highlight-blue_background" data-notion-highlight="blue_background">대체제 및 경재사 매핑</mark></h3><p id="2de3a94a-1fa4-8020-a732-fc04db68c734" class="" dir="auto">
+</p><p id="2de3a94a-1fa4-8092-b2d4-e21ed5507cc8" class="" dir="auto"><strong>1. 시장 경쟁 및 대체재 구조 (Mapping)</strong></p><table id="2de3a94a-1fa4-80bc-9e04-edb615503981" class="simple-table" dir="ltr"><tbody><tr id="2de3a94a-1fa4-8063-b1bd-f033583a9ba9" dir="ltr"><td id="bNF&lt;" class=""><strong>구분</strong></td><td id="Oyua" class="" style="width:293px"><strong>주요 대상 (예시)</strong></td><td id="n|l:" class="" style="width:283px"><strong>주요 특징</strong></td></tr><tr id="2de3a94a-1fa4-80c7-a5ea-c4e46483886e" dir="ltr"><td id="bNF&lt;" class=""><strong>직접 경쟁사</strong></td><td id="Oyua" class="" style="width:293px">핏펫(Pitpet), 인투펫(IntoPet), 우주라익 등</td><td id="n|l:" class="" style="width:283px">모바일 예약, 건강 기록, 커머스 결합형 서비스 제공</td></tr><tr id="2de3a94a-1fa4-80ab-b9ae-e53f5a520204" dir="ltr"><td id="bNF&lt;" class=""><strong>간접 대체재</strong></td><td id="Oyua" class="" style="width:293px">네이버 플레이스, 구글 맵, 커뮤니티(댕댕이왕국 등)</td><td id="n|l:" class="" style="width:283px">병원 위치/영업시간 확인 및 실제 사용자 후기 탐색</td></tr><tr id="2de3a94a-1fa4-808e-86ba-dc9ecd973483" dir="ltr"><td id="bNF&lt;" class=""><strong>강력한 대체재</strong></td><td id="Oyua" class="" style="width:293px">유선 전화 (Tele-call)</td><td id="n|l:" class="" style="width:283px">가장 원초적이고 확실한 실시간 정보 확인 수단</td></tr></tbody></table><p id="2de3a94a-1fa4-809a-bba2-dd8439af501e" class="" dir="auto">
+</p><p id="2de3a94a-1fa4-8076-b4c4-ea49436c80ca" class="" dir="auto"><strong>2.대안별 장단점 및 한계 분석</strong></p><table id="2de3a94a-1fa4-8030-9996-fd20085ce45a" class="simple-table" dir="ltr"><tbody><tr id="2de3a94a-1fa4-80c4-a160-fa4b1ed3fcd8" dir="ltr"><td id="Gb;\" class=""><strong>비교 항목</strong></td><td id="N[rx" class="" style="width:141px"><strong>유선 전화 (현 대안)</strong></td><td id="c~]v" class="" style="width:141px"><strong>기존 펫테크 앱 (직접 경쟁)</strong></td><td id="C:jA" class="" style="width:151.828125px"><strong>네이버/구글 (간접 대안)</strong></td><td id="uXfE" class="" style="width:144.21875px"><strong>우리의 솔루션</strong></td></tr><tr id="2de3a94a-1fa4-80ea-934d-e8c8af084003" dir="ltr"><td id="Gb;\" class=""><strong>가격</strong></td><td id="N[rx" class="" style="width:141px">무료(통화료 제외)</td><td id="c~]v" class="" style="width:141px">무료</td><td id="C:jA" class="" style="width:151.828125px">무료</td><td id="uXfE" class="" style="width:144.21875px">무료</td></tr><tr id="2de3a94a-1fa4-808f-810a-ef4936d8be16" dir="ltr"><td id="Gb;\" class=""><strong>편의성</strong></td><td id="N[rx" class="" style="width:141px">낮음 (대기/통화 필요)</td><td id="c~]v" class="" style="width:141px">보통 (예약 신청 위주)</td><td id="C:jA" class="" style="width:151.828125px">높음 (접근성 우수)</td><td id="uXfE" class="" style="width:144.21875px">매우 높음 (즉시 확정)</td></tr><tr id="2de3a94a-1fa4-80c6-8233-ccb1c8f09dcf" dir="ltr"><td id="Gb;\" class=""><strong>정보 실시간성</strong></td><td id="N[rx" class="" style="width:141px">높음</td><td id="c~]v" class="" style="width:141px">낮음 (승인 대기)</td><td id="C:jA" class="" style="width:151.828125px">매우 낮음 (정적 정보)</td><td id="uXfE" class="" style="width:144.21875px">최상 (API 자동 연동)</td></tr><tr id="2de3a94a-1fa4-8010-be89-cb59680a2e0e" dir="ltr"><td id="Gb;\" class=""><strong>데이터 활용도</strong></td><td id="N[rx" class="" style="width:141px">없음 (휘발성)</td><td id="c~]v" class="" style="width:141px">보통 (수동 기록)</td><td id="C:jA" class="" style="width:151.828125px">낮음 (리뷰 위주)</td><td id="uXfE" class="" style="width:144.21875px">높음 (생애주기 관리)</td></tr><tr id="2de3a94a-1fa4-8060-bcc9-f0791217120e" dir="ltr"><td id="Gb;\" class=""><strong>병원측 부담</strong></td><td id="N[rx" class="" style="width:141px">매우 높음 (업무 방해)</td><td id="c~]v" class="" style="width:141px">높음 (별도 관리 필요)</td><td id="C:jA" class="" style="width:151.828125px">낮음</td><td id="uXfE" class="" style="width:144.21875px">매우 낮음 (자동화)</td></tr></tbody></table><p id="2de3a94a-1fa4-8092-9dd8-ddd043d936b5" class="" dir="auto">
+</p><p id="2de3a94a-1fa4-8053-9e7c-c67f7b843606" class="" dir="auto"><strong>3. 차별화 포인트 도출 (Differentiation Strategy)</strong></p><p id="2de3a94a-1fa4-8069-b710-e9c4e0f953e5" class="" dir="auto">기존 대안들이 해결하지 못한 <em><span style="border-bottom:0.05em solid">&#x27;실시간 데이터의 단절&#x27;을 기술로 극복하는 것이 우리의 핵심 차별화 전략</span></em>입니다.</p><ul id="2de3a94a-1fa4-8050-bcec-f66c573ef0a0" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>승인 대기 없는 &#x27;리얼타임&#x27; 예약</strong><br/>기존 앱이 &#x27;예약 신청 → 병원 확인 → 확정&#x27;의 3단계를 거쳤다면, 우리는 EMR 연동을 통해 &#x27;즉시 예약 확정&#x27;이라는 가치를 제공합니다.</li></ul><ul id="2de3a94a-1fa4-80eb-bd00-d9f14eb023d5" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>아날로그 습관의 디지털 흡수</strong><br/>보호자의 64.1%가 전화를 거는 이유는 &quot;지금 가면 바로 진료 가능한가?&quot;에 대한 불확실성 때문입니다. 우리는 AI 기반 진료 현황 추론을 통해 전화보다 더 정확한 가이드라인을 제시합니다.</li></ul><ul id="2de3a94a-1fa4-80ba-9a41-f2fdb7f55ad6" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>수동 입력 제로화 (Operator-free)</strong><br/>병원 관계자가 앱에 접속해 정보를 수정할 필요가 없도록 POS/EMR 자동 캡처 기술을 적용하여 공급자(병원)의 참여 장벽을 완전히 제거합니다.</li></ul><ul id="2de3a94a-1fa4-804a-a403-f1c1aae6bdd7" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>처방식 가용성(Inventory Visibility)</strong><br/>단순히 &quot;판다&quot;는 정보가 아니라 &quot;현재 우리 집 근처 병원에 3개 남아 있다&quot;는 수치 기반의 실시간 재고 정보를 제공하여 헛걸음 비용을 제로화합니다.</li></ul><p id="2de3a94a-1fa4-80de-9c15-e45a4d66a14e" class="" dir="auto">
+</p><p id="2de3a94a-1fa4-8081-8b50-df6b79b44cfe" class="" dir="auto">
+</p><hr id="2de3a94a-1fa4-80d1-a63c-ca66f354d46f" dir="auto"/><p id="2de3a94a-1fa4-8050-a9d7-f905c3dc7d44" class="" dir="auto">
+</p><p id="2de3a94a-1fa4-8056-a4eb-f3dc1e118fed" class="" dir="auto">
+</p><h3 id="2de3a94a-1fa4-805b-ae30-e0207865cb63" class="" dir="auto"><mark class="highlight-blue_background" data-notion-highlight="blue_background">시장 구조 시각화</mark></h3><pre id="2de3a94a-1fa4-8087-8b1c-d3325b69173d" class="code code-wrap" data-notion-code-syntax="mermaid"><code class="language-mermaid" style="white-space:pre-wrap;word-break:break-all">graph TD
+    subgraph Market_Inconsistency[&quot;현재 시장의 비효율 (As-Is)&quot;]
+        A[폐쇄적 EMR/POS 데이터] -- &quot;연동률 5% 미만&quot; --&gt; B{정보 단절}
+        B -- &quot;부정확한 정보&quot; --&gt; C[보호자 64.1% 유선전화 의존]
+        C -- &quot;업무 과부하&quot; --&gt; D[병원 운영 효율 저하]
+        D -- &quot;수동 업데이트 불가&quot; --&gt; B
+    end
+
+    subgraph AI_Opportunity[&quot;AI 개입 및 혁신 영역 (To-Be)&quot;]
+        E{{&quot;AI Data Engine&quot;}} 
+        E -.-&gt;|실시간 캡처| A
+        E -.-&gt;|진료현황 추론| F[실시간 진료 가시성]
+        E -.-&gt;|수요 예측| G[처방식 재고 최적화]
+        E -.-&gt;|자동화| H[즉시 예약 확정]
+    end
+
+    subgraph Value_Delivery[&quot;혁신된 고객 가치&quot;]
+        F &amp; G &amp; H --&gt; I[탐색 비용 80% 절감]
+        I --&gt; J[반려동물 골든타임 사수 및 예방케어 완성]
+    end
+
+    style B fill:#f96,stroke:#333,stroke-width:2px
+    style E fill:#69f,stroke:#333,stroke-width:4px
+    style I fill:#9f6,stroke:#333,stroke-width:2px</code></pre><p id="2de3a94a-1fa4-802d-824b-e6735a25068d" class="" dir="auto">
+</p><p id="2de3a94a-1fa4-80cb-bd33-ff5bfe310967" class="" dir="auto">
+</p><blockquote id="2de3a94a-1fa4-803d-b3e9-ece897223bec" class="" dir="auto"><strong>기회 영역 하이라이트 (Opportunity Analysis)</strong></blockquote><p id="2de3a94a-1fa4-80c8-b837-cb34ee1a687b" class="" dir="auto">1. <strong>데이터 파이프라인의 자동화 (EMR ↔ Cloud)</strong></p><ul id="2de3a94a-1fa4-80a1-9575-f209a7e3dc84" class="bulleted-list" dir="auto"><li style="list-style-type:disc">비효율 지점: 병원 내부 서버에 갇혀 외부로 흐르지 못하는 데이터 사일로(Silo) 현상.</li></ul><ul id="2de3a94a-1fa4-8003-816f-d4a6ca3ccd51" class="bulleted-list" dir="auto"><li style="list-style-type:disc">AI 개입: 사람이 개입하지 않는 실시간 데이터 추출(Extraction) 엔진. 병원 직원의 업무를 늘리지 않으면서 데이터를 밖으로 끌어내는 것이 핵심입니다.</li></ul><p id="2de3a94a-1fa4-8006-9be0-d5884480add4" class="" dir="auto">2. <strong>동적 정보의 실시간 추론 (Dynamic Context)</strong></p><ul id="2de3a94a-1fa4-80cc-b370-d8727cc8b18f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">비효율 지점: &quot;지금 가면 바로 진료 가능한가?&quot;라는 질문에 앱이 답을 주지 못해 결국 전화를 거는 상황.</li></ul><ul id="2de3a94a-1fa4-8017-8a75-fb9d9fcd8c8a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">AI 개입: 결제 데이터와 예약 로그를 실시간 분석하여 &#x27;현재 혼잡도&#x27;와 &#x27;예상 대기 시간&#x27;을 추론합니다. 이는 유선 전화를 완전히 대체할 수 있는 가장 강력한 무기입니다.</li></ul><p id="2de3a94a-1fa4-8060-9cb0-e31bea326e35" class="" dir="auto">3. <strong>공급망 가시성 확보 (Inventory Visibility)</strong></p><ul id="2de3a94a-1fa4-80fe-9363-fa8a3d379f7a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">비효율 지점: 처방식 재고가 있는지 확인하기 위해 여러 병원에 전화를 돌려야 하는 불편함.</li></ul><ul id="2de3a94a-1fa4-80b0-83e4-dfaf379e4b36" class="bulleted-list" dir="auto"><li style="list-style-type:disc">AI 개입: POS 데이터와 연동된 실시간 재고 추적 및 위치 기반 노출. 보호자에게는 &#x27;구매 가능성&#x27;을, 병원에는 &#x27;판매 기회&#x27;를 극대화합니다.</li></ul><p id="2de3a94a-1fa4-806b-b906-f8c16e6f4c3e" class="" dir="auto">
+</p><blockquote id="2de3a94a-1fa4-80ae-a15c-fa665a8a364d" class="" dir="auto"><strong>결과 요약</strong></blockquote><table id="2de3a94a-1fa4-8099-9d47-e58685d6aebd" class="simple-table" dir="ltr"><tbody><tr id="2de3a94a-1fa4-80b4-9024-e4bfab991177" dir="ltr"><td id="@nkg" class="" style="width:87px"><strong>혁신 요소</strong></td><td id="B?Pn" class="" style="width:164px"><strong>기존 방식 (Analog)</strong></td><td id="ue~A" class="" style="width:159px"><strong>AI 혁신 방식 (Digital)</strong></td><td id=";bLi" class="" style="width:237.6875px"><strong>기대 효과</strong></td></tr><tr id="2de3a94a-1fa4-803e-883e-f6f220fe4374" dir="ltr"><td id="@nkg" class="" style="width:87px"><strong>정보 확인</strong></td><td id="B?Pn" class="" style="width:164px">64.1% 유선 전화 문의</td><td id="ue~A" class="" style="width:159px">실시간 상태 대시보드</td><td id=";bLi" class="" style="width:237.6875px">탐색 시간 45분 → 30초</td></tr><tr id="2de3a94a-1fa4-8034-8fc2-fc24bf804872" dir="ltr"><td id="@nkg" class="" style="width:87px"><strong>병원 예약</strong></td><td id="B?Pn" class="" style="width:164px">전화 후 승인 대기</td><td id="ue~A" class="" style="width:159px">즉시 확정 시스템</td><td id=";bLi" class="" style="width:237.6875px">노쇼(No-show) 15% 감소</td></tr><tr id="2de3a94a-1fa4-805d-850c-c98922d31685" dir="ltr"><td id="@nkg" class="" style="width:87px"><strong>재고 관리</strong></td><td id="B?Pn" class="" style="width:164px">방문 전 수동 확인</td><td id="ue~A" class="" style="width:159px">위치 기반 실시간 재고</td><td id=";bLi" class="" style="width:237.6875px">헛걸음 비용 제로화</td></tr></tbody></table><p id="2de3a94a-1fa4-8046-b36f-d73b0e73fc65" class="" dir="auto">
+</p><p id="2de3a94a-1fa4-80b9-ba9b-d4431b513740" class="" dir="auto">
+</p><hr id="2de3a94a-1fa4-8080-a282-f447dfa02210" dir="auto"/><p id="2de3a94a-1fa4-8058-9b18-de01245c2357" class="" dir="auto">
+</p><p id="2de3a94a-1fa4-80ec-aa40-d4a9a67108a2" class="" dir="auto">
+</p><h3 id="2de3a94a-1fa4-80be-82a9-f2b6ed4934cc" class="" dir="auto"><mark class="highlight-blue_background" data-notion-highlight="blue_background">종합 분석 및 핵심 기회 도출</mark></h3><p id="2de3a94a-1fa4-809b-92d4-fab98286e74f" class="" dir="auto">
+</p><p id="2de3a94a-1fa4-80f2-b057-d7124947c06a" class="" dir="auto"><strong>1. 3가지 핵심 발견 (Key Findings)</strong></p><ul id="2de3a94a-1fa4-8002-bc82-f6801adcd380" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>데이터의 &#x27;고립된 섬&#x27; (Data Silo)</strong><br/>동물병원 EMR 보급률은 높지만 외부 API 연동률은 5% 미만입니다. 이로 인해 보호자는 앱을 두고도 실시간 정보를 위해 64.1%의 비율로 유선 전화에 의존하는 &#x27;디지털 단절&#x27; 상태에 놓여 있습니다.</li></ul><ul id="2de3a94a-1fa4-8098-9478-feade2114a60" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>운영 리소스의 임계점</strong><br/>수의사와 간호사는 진료 본연의 업무만으로도 과부하 상태입니다. 기존 서비스들이 실패한 이유는 병원 측에 &#x27;추가적인 수동 업데이트&#x27;라는 운영 부담을 지웠기 때문입니다.</li></ul><ul id="2de3a94a-1fa4-80be-b3ac-c5b6a24fd566" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>표준화의 물결 (Regulatory Shift)</strong><br/>2024년 정부의 &#x27;동물진료 표준화 고시&#x27;는 파편화된 의료 데이터를 통합할 수 있는 유례없는 기회를 제공하며, 이는 산업 전체의 디지털 전환(DX)을 촉발하는 촉매제가 되고 있습니다.</li></ul><p id="2de3a94a-1fa4-80b4-9895-f84e15044ebc" class="" dir="auto">
+</p><p id="2de3a94a-1fa4-800a-926d-fffee944d82f" class="" dir="auto"><strong>2. 2가지 주요 기회 (Core Opportunities)</strong></p><p id="2de3a94a-1fa4-80b4-95fc-d5cc1a74fced" class="" dir="auto">우리가 <em><span style="border-bottom:0.05em solid">즉시 진입하여 점유할 수 있는 구체적인 영역</span></em>입니다.</p><p id="2de3a94a-1fa4-80e8-92f2-df9998e9dc04" class="" dir="auto">
+</p><ul id="2de3a94a-1fa4-80c6-bf7a-ebd6958df89e" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>실시간 가시성 기반의 &#x27;노쇼 제로(Zero)&#x27; 예약 시장</strong><ul id="2de3a94a-1fa4-8081-90b6-ed17ff514fce" class="bulleted-list" dir="auto"><li style="list-style-type:circle">내용: EMR 데이터 실시간 연동을 통한 &#x27;즉시 확정 예약&#x27; 시스템 구축.</li></ul><ul id="2de3a94a-1fa4-80ca-863a-f4d0fcd923be" class="bulleted-list" dir="auto"><li style="list-style-type:circle">기회: 전화 문의를 획기적으로 줄여 병원 운영 효율을 높이고, 보호자에게는 뺑뺑이 없는 진료 환경을 제공하여 강력한 락인(Lock-in) 효과 창출.</li></ul></li></ul><ul id="2de3a94a-1fa4-80a2-a22e-d2c92e434909" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>처방식/의약품 &#x27;라스트마일 재고 가시화&#x27; 커머스</strong><ul id="2de3a94a-1fa4-800c-9cc9-f89f674ee112" class="bulleted-list" dir="auto"><li style="list-style-type:circle">내용: POS 데이터 연동을 통해 내 주변 병원의 처방식 실시간 재고를 지도상에 노출.</li></ul><ul id="2de3a94a-1fa4-80f1-ba3e-d76991640c6e" class="bulleted-list" dir="auto"><li style="list-style-type:circle">기회: 6조 원 규모의 펫 시장 중 의료비(40%)와 직결된 고부가가치 소모품 시장을 선점하고, 병원 방문을 유도하는 온-오프라인 연결(O2O) 수익 모델 확보.</li></ul></li></ul><p id="2de3a94a-1fa4-80e8-b407-f4ffe6fdfaea" class="" dir="auto">
+</p><p id="2de3a94a-1fa4-8060-9fb4-edd82b2179ca" class="" dir="auto">
+</p><p id="2de3a94a-1fa4-801f-81ad-dde94cfde169" class="" dir="auto"><strong>3. 1가지 리스크 요인 (Key Risk)</strong></p><ul id="2de3a94a-1fa4-808b-a78d-fdc956b3e251" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>EMR 업체의 폐쇄적 독점 및 협상 장벽</strong><ul id="2de3a94a-1fa4-800b-a9cb-e7969aca0a52" class="bulleted-list" dir="auto"><li style="list-style-type:circle">리스크: 기존 EMR 솔루션 업체들이 데이터 주도권을 유지하기 위해 제3자 서비스의 데이터 접근을 제한하거나 과도한 연동 비용을 요구할 수 있습니다.</li></ul><ul id="2de3a94a-1fa4-8042-ac23-cd9306e91cba" class="bulleted-list" dir="auto"><li style="list-style-type:circle">대응 전략: 병원 연합회와의 파트너십을 통해 &#x27;병원 업무 효율화&#x27;라는 명분을 선점하고, 특정 EMR에 종속되지 않는 범용적 데이터 추출 기술(에이전트 방식 등)로 기술적 우회로를 확보해야 합니다.</li></ul></li></ul><p id="2de3a94a-1fa4-8091-a52f-ccdacf38bc8f" class="" dir="auto">
+</p><p id="2de3a94a-1fa4-8058-bef2-e822003a549d" class="" dir="auto">
+</p><hr id="2de3a94a-1fa4-808b-a41f-d63cec4e5179" dir="auto"/><p id="2e43a94a-1fa4-8025-8693-c1004a6a2286" class="" dir="auto">
+</p><p id="2de3a94a-1fa4-80ab-b26b-c1dac43a5fc5" class="" dir="auto">
+</p><h3 id="2de3a94a-1fa4-8091-bc1e-d775b4d842ea" class="" dir="auto"><mark class="highlight-blue_background" data-notion-highlight="blue_background">페르소나 &amp; JTBD 설계</mark></h3><p id="2de3a94a-1fa4-804c-b0d3-cdd29f35cf4b" class="" dir="auto">
+</p><blockquote id="2de3a94a-1fa4-808c-ad8d-ef8863add034" class="" dir="auto"><strong>페르소나 설계</strong></blockquote><aside class="block-color-default_background callout" data-notion-callout="" data-notion-callout-icon="1️⃣" data-notion-callout-background="default_background" style="white-space:pre-wrap;display:flex" id="2dd3a94a-1fa4-80c1-b087-e0e1cfbc9f26" dir="ltr"><div style="font-size:1.5em"><span class="icon" data-emoji="1️⃣"></span></div><div style="width:100%"><p id="2dd3a94a-1fa4-8059-8c2a-dd6e4828dee2" class="" dir="auto"><strong>&quot;정보 중심의 스마트 헬스 가디언”</strong></p><p id="2de3a94a-1fa4-80ea-89ff-fdf7507be1fb" class="" dir="auto">우리 아이 건강 데이터가 파편화되어 있는 게 가장 답답해요. <br/>실시간으로 연결된 정보를 원합니다.</p><hr id="2dd3a94a-1fa4-804f-8fdc-d5b9ad942eec" dir="auto"/><figure id="2de3a94a-1fa4-8013-b89c-d65d5d310b1d" class="image" data-notion-image="%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B81/01.png" dir="ltr"><a href="%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B81/01.png"><img style="width:585px" src="%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B81/01.png"/></a></figure><ol type="1" id="2de3a94a-1fa4-8048-bb32-d9bb6e38319a" class="numbered-list" start="1" dir="auto"><li>프로필: 이수진 (32세) / IT 기업 서비스 기획자 / 월 평균 소득 450만 원 (서울 강남구 거주)</li></ol><ol type="1" id="2de3a94a-1fa4-8085-ab3a-f59c0fbff6dd" class="numbered-list" start="2" dir="auto"><li>하루 일과 및 생활 패턴:<ul id="2de3a94a-1fa4-80f9-ab0e-ce0835eac789" class="bulleted-list" dir="auto"><li style="list-style-type:disc">아침 7시 홈캠으로 반려견 상태 확인 후 출근.</li></ul><ul id="2de3a94a-1fa4-80d2-ba9d-c247e1df310f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">업무 중 수시로 펫 커뮤니티와 앱을 통해 건강 정보를 탐색.</li></ul><ul id="2de3a94a-1fa4-8033-b226-c3d7615e0a89" class="bulleted-list" dir="auto"><li style="list-style-type:disc">퇴근 후 산책 데이터를 기록하고 영양제 급여 여부를 체크하는 &#x27;데이터 기반 케어&#x27; 루틴 보유.</li></ul></li></ol><ol type="1" id="2de3a94a-1fa4-80bf-93b2-f039ae82d2e1" class="numbered-list" start="3" dir="auto"><li>기술 활용 수준: 최상 (각종 펫테크 기기, 웨어러블, IoT 홈캠 활용에 능숙).</li></ol><ol type="1" id="2de3a94a-1fa4-80d9-ad1b-f5410929eb41" class="numbered-list" start="4" dir="auto"><li>현재 겪고 있는 주요 문제:<ul id="2de3a94a-1fa4-80fa-ba1e-ecf34928c3d9" class="bulleted-list" dir="auto"><li style="list-style-type:disc">데이터 단절: 병원마다 EMR(전자차트)이 연동되지 않아 이전 진료 기록을 보호자가 일일이 설명해야 함.</li></ul><ul id="2de3a94a-1fa4-801a-96e0-e5972d22f88d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">재고 확인 비효율: 처방 사료나 약품 재고를 확인하기 위해 매번 3~4곳의 병원에 유선 전화를 돌려야 함.</li></ul><ul id="2de3a94a-1fa4-8090-a63a-c4eff8642b0f" class="bulleted-list" dir="auto"><li style="list-style-type:disc">예약의 불확실성: 앱으로 예약 신청을 해도 병원에서 확정 전화가 올 때까지 기다려야 하는 &#x27;수동 프로세스&#x27;.</li></ul></li></ol><ol type="1" id="2de3a94a-1fa4-806e-b876-c24a4ad5a4db" class="numbered-list" start="5" dir="auto"><li>이상적인 해결책에 대한 기대: 전국의 병원 EMR이 내 앱과 실시간 연동되어, 진료 이력 확인부터 재고 조회, 예약 확정까지 원스톱(One-stop)으로 이루어지는 것.</li></ol></div></aside><aside class="block-color-default_background callout" data-notion-callout="" data-notion-callout-icon="2️⃣" data-notion-callout-background="default_background" style="white-space:pre-wrap;display:flex" id="2de3a94a-1fa4-805a-9174-cc8aeb246265" dir="ltr"><div style="font-size:1.5em"><span class="icon" data-emoji="2️⃣"></span></div><div style="width:100%"><p id="2de3a94a-1fa4-80fc-8508-fd86ff5d3c2b" class="" dir="auto"><strong>&quot;효율을 추구하는 과부하 원장님&quot; </strong><mark class="highlight-gray" data-notion-highlight="gray">(공급자형)</mark></p><p id="2de3a94a-1fa4-8011-8b24-f8346a1fc585" class="" dir="auto">진료에만 집중하고 싶습니다.<br/>단순 문의 전화와 노쇼(No-show)가 병원 운영의 가장 큰 병목이에요.</p><hr id="2de3a94a-1fa4-80e0-85cc-c2996cf1ac25" dir="auto"/><figure id="2de3a94a-1fa4-80c4-a73c-ddecc643b9fa" class="image" data-notion-image="%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B81/02.png" dir="ltr"><a href="%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B81/02.png"><img style="width:585px" src="%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B81/02.png"/></a></figure><ul id="2de3a94a-1fa4-807b-8a8a-cc72b73b31e1" class="bulleted-list" dir="auto"><li style="list-style-type:disc">프로필: 김원장 (48세) / 2인 진료 동물병원 대표 원장 / 연 소득 1.5억 원 이상 (경기 분당구 운영)</li></ul><ul id="2de3a94a-1fa4-80a4-b4bf-d3e6a3c3076a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">하루 일과 및 생활 패턴:<ul id="2de3a94a-1fa4-8054-8a47-f60f6e2ccb7a" class="bulleted-list" dir="auto"><li style="list-style-type:circle">오전 10시부터 저녁 8시까지 꽉 짜인 진료 일정.</li></ul><ul id="2de3a94a-1fa4-804e-980a-f181f48c9567" class="bulleted-list" dir="auto"><li style="list-style-type:circle">진료 중간중간 간호사가 전달하는 단순 문의(재고 유무, 대기 시간 등)에 대응하느라 집중력이 분산됨.</li></ul><ul id="2de3a94a-1fa4-804d-876d-c596662bc719" class="bulleted-list" dir="auto"><li style="list-style-type:circle">폐쇄적인 차트 시스템에 익숙하지만, 외부 플랫폼의 필요성은 인지하고 있음.</li></ul></li></ul><ul id="2de3a94a-1fa4-8007-8665-d10550d5510d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">기술 활용 수준: 중 (의료 장비 활용은 전문적이나, 마케팅 및 외부 플랫폼 관리는 번거로워함).</li></ul><ul id="2de3a94a-1fa4-80be-afc4-e996401a8d3a" class="bulleted-list" dir="auto"><li style="list-style-type:disc">현재 겪고 있는 주요 문제:<ul id="2de3a94a-1fa4-8009-aa8d-efd0a8a645fc" class="bulleted-list" dir="auto"><li style="list-style-type:circle">업무 과부하: 전체 문의 전화의 60%가 &quot;지금 가면 바로 진료 되나요?&quot; 같은 단순 확인 업무임.</li></ul><ul id="2de3a94a-1fa4-8062-a094-ce181bc675b6" class="bulleted-list" dir="auto"><li style="list-style-type:circle">노쇼 손실: 유선 예약 고객의 약 15%가 예고 없이 나타나지 않아 진료 슬롯과 기회비용을 낭비함.</li></ul><ul id="2de3a94a-1fa4-80f1-bce4-c29fb608d0e8" class="bulleted-list" dir="auto"><li style="list-style-type:circle">수동 업데이트의 한계: 재고나 진료 가능 시간을 앱에 일일이 직접 입력할 인적 리소스가 전무함.</li></ul></li></ul><ul id="2de3a94a-1fa4-80ee-a76d-ccbedd488710" class="bulleted-list" dir="auto"><li style="list-style-type:disc">이상적인 해결책에 대한 기대: 별도의 조작 없이도 내 병원의 EMR 데이터가 자동 연동되어 보호자에게 실시간 정보를 제공하고, 예약과 결제까지 자동화되는 시스템.</li></ul></div></aside><aside class="block-color-default_background callout" data-notion-callout="" data-notion-callout-icon="3️⃣" data-notion-callout-background="default_background" style="white-space:pre-wrap;display:flex" id="2de3a94a-1fa4-80b1-a2fe-ce290f5fd893" dir="ltr"><div style="font-size:1.5em"><span class="icon" data-emoji="3️⃣"></span></div><div style="width:100%"><p id="2de3a94a-1fa4-8043-aab2-c61e13109240" class="" dir="auto"><strong>&quot;관리가 필요한 초보 펫부모&quot;</strong> <mark class="highlight-gray" data-notion-highlight="gray">(고관여 저지식형)</mark></p><p id="2de3a94a-1fa4-80f4-8373-df4820641fa7" class="" dir="auto">첫 아이라 언제 병원에 가야 할지 매번 헷갈려요.<br/>누가 미리 알려주고 챙겨줬으면 좋겠어요.</p><hr id="2de3a94a-1fa4-80e2-9fbc-c019ca0eb08e" dir="auto"/><figure id="2de3a94a-1fa4-8058-955b-da8603c13995" class="image" data-notion-image="%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B81/03.png" dir="ltr"><a href="%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B81/03.png"><img style="width:585px" src="%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B81/03.png"/></a></figure><ol type="1" id="2de3a94a-1fa4-807c-ad5b-c7734e1d50b5" class="numbered-list" start="1" dir="auto"><li>프로필: 박지훈 (27세) / 신입 마케터 / 월 평균 소득 280만 원 (서울 마포구 거주)</li></ol><ol type="1" id="2de3a94a-1fa4-80bb-bfe2-ffb6bf3d23da" class="numbered-list" start="2" dir="auto"><li>하루 일과 및 생활 패턴:<ul id="2de3a94a-1fa4-8060-b72f-c95a37fc0159" class="bulleted-list" dir="auto"><li style="list-style-type:disc">불규칙한 야근과 바쁜 업무 일과로 인해 반려동물 예방접종 주기를 자주 놓침.</li></ul><ul id="2de3a94a-1fa4-80bf-b7e1-ee2322eab57b" class="bulleted-list" dir="auto"><li style="list-style-type:disc">긴급 상황 시 어느 병원이 야간 진료를 하는지 몰라 당황하며 검색에만 시간을 보냄.</li></ul><ul id="2de3a94a-1fa4-8053-9092-f192c38d646e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">반려동물 건강 관리에 대한 의지는 높으나 의학적 지식은 부족함.</li></ul></li></ol><ol type="1" id="2de3a94a-1fa4-8045-bb8f-c2588ea181d9" class="numbered-list" start="3" dir="auto"><li>기술 활용 수준: 상 (모바일 퍼스트 세대, 텍스트보다 직관적인 UI/UX 중시).</li></ol><ol type="1" id="2de3a94a-1fa4-805b-bc7d-cbf98b409f3b" class="numbered-list" start="4" dir="auto"><li>현재 겪고 있는 주요 문제:<ul id="2de3a94a-1fa4-800c-b858-e919f765076e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">예방 케어 누락: 접종 주기를 잊어버려 기초 접종을 처음부터 다시 시작해야 하는 경제적·시간적 손해 발생.</li></ul><ul id="2de3a94a-1fa4-80f4-91e9-c8a6d429846d" class="bulleted-list" dir="auto"><li style="list-style-type:disc">응급 상황 대응 불가: 야간이나 주말에 진료 가능한 근처 병원을 실시간으로 찾지 못해 &#x27;뺑뺑이&#x27;를 도는 공포감.</li></ul><ul id="2de3a94a-1fa4-80b1-9960-e8b987912d5e" class="bulleted-list" dir="auto"><li style="list-style-type:disc">정보 과잉의 오류: 인터넷의 잘못된 정보(카더라)와 실제 의료 데이터 사이에서 혼란을 겪음.</li></ul></li></ol><ol type="1" id="2de3a94a-1fa4-8018-9a7f-db06cd4d40b8" class="numbered-list" start="5" dir="auto"><li>이상적인 해결책에 대한 기대: 반려동물의 생애주기에 맞춰 다음 진료일을 미리 알려주고, 응급 시 내 주변의 &#x27;진료 중&#x27;인 병원을 원클릭으로 매칭해 주는 비서형 가이드.</li></ol></div></aside><p id="2e43a94a-1fa4-80fc-91a6-ffcd777364a5" class="" dir="auto">
+</p><p id="2e43a94a-1fa4-80f6-9e00-d3cb16114af6" class="" dir="auto">
+</p><p id="2de3a94a-1fa4-8090-bbf8-e84a8839ccb0" class="" dir="auto">
+</p><blockquote id="2de3a94a-1fa4-80ae-8d19-c66ca4c84d57" class="" dir="auto"><strong>JTBD(Job-to-be-Done)</strong></blockquote><p id="2de3a94a-1fa4-8080-aaa5-cf28edd65c93" class="" dir="auto">
+</p><p id="2e43a94a-1fa4-8094-8781-c733c3cc55a1" class="" dir="auto"><strong>1. 이수진 (30대 직장인, 고관여 보호자)</strong></p><ul id="2e43a94a-1fa4-8015-a725-c93df9fa292f" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>상황(Context)</strong><ul id="2e43a94a-1fa4-8064-9607-d79fbd8c08ab" class="bulleted-list" dir="auto"><li style="list-style-type:circle">언제: 목요일 오후 3시, 회의 준비로 바쁜 업무 시간 중.</li></ul><ul id="2e43a94a-1fa4-802a-bf04-f92a1454b3b8" class="bulleted-list" dir="auto"><li style="list-style-type:circle">어디서: 사무실 책상 앞.</li></ul><ul id="2e43a94a-1fa4-80ec-a9ac-f94bb4670927" class="bulleted-list" dir="auto"><li style="list-style-type:circle">무엇 때문에: 반려견의 정기 심장사상충 예방일이 다가왔음을 문득 깨달았지만, <span style="border-bottom:0.05em solid">정확한 날짜가 기억나지 않음.</span></li></ul></li></ul><ul id="2e43a94a-1fa4-80be-835d-d7c97a92a9fe" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>촉발 요인(Trigger)</strong><ul id="2e43a94a-1fa4-8036-92f5-d604227c2a18" class="bulleted-list" dir="auto"><li style="list-style-type:circle">즉각적 계기: 스마트폰 캘린더의 모호한 메모 알람.</li></ul><ul id="2e43a94a-1fa4-80ae-88f2-d43b62b16b03" class="bulleted-list" dir="auto"><li style="list-style-type:circle">감정 상태: <span style="border-bottom:0.05em solid">바쁜 업무 중에 병원까지 예약해야 한다는 압박감과 혹시 시기를 놓쳐 반려견 건강에 문제가 생길까 봐 느끼는 불안함.</span></li></ul></li></ul><ul id="2e43a94a-1fa4-80c0-bdb7-d5238cbb6c93" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Job-to-be-Done</strong><ul id="2e43a94a-1fa4-80f4-98bd-f161bfac36bb" class="bulleted-list" dir="auto"><li style="list-style-type:circle">&quot;나는 업무 중에도 에너지를 낭비하지 않고 반려견의 접종 시기를 완벽히 챙기기 위해, 과거 기록이 연동된 자동 알림을 받고 그 즉시 빈 슬롯을 예약할 수 있는 해결책을 찾고 있다.&quot;</li></ul></li></ul><ul id="2e43a94a-1fa4-8023-ae2d-c91ccbe6ce11" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>현재 대안의 한계</strong><ul id="2e43a94a-1fa4-8094-b52c-ee475fe81385" class="bulleted-list" dir="auto"><li style="list-style-type:circle">병원의 종이 수첩을 찾거나 일일이 전화를 걸어 &quot;지난번에 언제 맞았죠?&quot;라고 물어봐야 함. 전화를 걸 시간이 없거나 병원이 점심시간이면 예약 자체가 불가능함.</li></ul></li></ul><p id="2e43a94a-1fa4-809a-b62e-c40a098aa2f0" class="" dir="auto">
+</p><hr id="2e43a94a-1fa4-80da-b12c-f7a46e5355cd" dir="auto"/><p id="2e43a94a-1fa4-8003-97a8-fbfbb576fa0b" class="" dir="auto">
+</p><p id="2e43a94a-1fa4-80b4-baed-d874a942acb2" class="" dir="auto"><strong>2. 김원장 (40대 후반, 동물병원 운영자)</strong></p><ul id="2e43a94a-1fa4-80d0-bc7e-ee440183cbdf" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>상황(Context)</strong><ul id="2e43a94a-1fa4-8052-aa17-d7d32fea304a" class="bulleted-list" dir="auto"><li style="list-style-type:circle">언제: 월요일 오전 11시, 오전 진료가 가장 몰리는 시간.</li></ul><ul id="2e43a94a-1fa4-8001-8fed-ddcb9ee3a523" class="bulleted-list" dir="auto"><li style="list-style-type:circle">어디서: 진료실과 리셉션 사이.</li></ul><ul id="2e43a94a-1fa4-805c-8fbb-eac1ae9d61ad" class="bulleted-list" dir="auto"><li style="list-style-type:circle">무엇 때문에: 처방 사료(닥터 힐메딕스) 재고 문의 전화와 접종 확인 전화가 동시에 울려 간호사의 업무에 지장을 받음</li></ul></li></ul><ul id="2e43a94a-1fa4-80fa-91a7-db319598fcb9" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>촉발 요인(Trigger)</strong><ul id="2e43a94a-1fa4-8051-ad0b-d7d1301908da" class="bulleted-list" dir="auto"><li style="list-style-type:circle">즉각적 계기: 진료 대기 중인 보호자가 데스크의 혼란을 보고 눈치를 주는 상황.</li></ul><ul id="2e43a94a-1fa4-8089-ae1e-f5129f7083ff" class="bulleted-list" dir="auto"><li style="list-style-type:circle">감정 상태: 단순 반복 문의 전화로 인해 <span style="border-bottom:0.05em solid">정작 중요한 진료와 수술에 집중하지 못해 느끼는 피로감과 운영 효율 저하에 대한 스트레스.</span></li></ul></li></ul><ul id="2e43a94a-1fa4-804c-af81-c4cfb0f47c10" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Job-to-be-Done</strong><ul id="2e43a94a-1fa4-80f0-862e-f48d23cd1e43" class="bulleted-list" dir="auto"><li style="list-style-type:circle">&quot;나는 간호사가 진료 보조와 현장 보호자 응대에만 집중할 수 있는 환경을 만들기 위해, 병원 시스템(EMR/POS)이 알아서 재고와 예약 현황을 외부에 실시간으로 노출해 주는 해결책을 찾고 있다.&quot;</li></ul></li></ul><ul id="2e43a94a-1fa4-8057-8d59-c1d691fbe495" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>현재 대안의 한계</strong><ul id="2e43a94a-1fa4-80a8-ac99-fff0be4fa1de" class="bulleted-list" dir="auto"><li style="list-style-type:circle">네이버 예약을 수동으로 관리해보려 했으나 실제 EMR 예약과 충돌하여 이중 예약 사고가 발생함. 사료 재고는 전화로 일일이 확인해주지 않으면 보호자가 헛걸음하게 됨.</li></ul></li></ul><p id="2e43a94a-1fa4-80bc-951f-e005c78853d6" class="" dir="auto">
+</p><hr id="2e43a94a-1fa4-8005-8cab-d1df51eb0dcb" dir="auto"/><p id="2e43a94a-1fa4-80ec-80ba-d610baf2c3a9" class="" dir="auto">
+</p><p id="2e43a94a-1fa4-80c5-97c7-d93d7f75e839" class="" dir="auto"><strong>3. 박지훈 (20대 사회초년생, 초보 보호자)</strong></p><ul id="2e43a94a-1fa4-80a8-a721-f7be08f6f4fd" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>상황(Context)</strong><ul id="2e43a94a-1fa4-809e-a16a-e886d2f3a284" class="bulleted-list" dir="auto"><li style="list-style-type:circle">언제: 일요일 저녁, 반려견에게 저녁 식사를 주려다 처방 사료 봉투가 비어 있는 것을 발견했을 때.</li></ul><ul id="2e43a94a-1fa4-80d6-9824-c92fbfabb506" class="bulleted-list" dir="auto"><li style="list-style-type:circle">어디서: 자취방 거실.</li></ul><ul id="2e43a94a-1fa4-80db-aed3-c2cdd20e65f5" class="bulleted-list" dir="auto"><li style="list-style-type:circle">무엇 때문에: 최근 반려견이 <span style="border-bottom:0.05em solid">결석/방광염 진단을 받아 치료의 일환으로 반드시 로얄캐닌 처방식만</span> 먹어야 하는데, 미리 재고를 파악하지 못함.</li></ul></li></ul><ul id="2e43a94a-1fa4-8024-b9cb-f5391558b60d" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>촉발 요인(Trigger)</strong><ul id="2e43a94a-1fa4-80a0-8001-da3294a4ec3f" class="bulleted-list" dir="auto"><li style="list-style-type:circle">즉각적 계기: 온라인으로 주문하려 했으나 <span style="border-bottom:0.05em solid">&quot;동물병원 전용 제품으로 온라인 판매가 제한됨&quot;</span>이라는 문구를 보고, 당장 내일 아침 아이에게 줄 수 있는 사료가 없다는 것을 깨달았을 때.</li></ul><ul id="2e43a94a-1fa4-8004-afd0-cf914e9efc61" class="bulleted-list" dir="auto"><li style="list-style-type:circle">감정 상태: 일반 사료를 먹였다가 혹시라도 다시 혈뇨를 보거나 아이의 병세가 악화될까 봐 느끼는 극도의 공포와 죄책감.</li></ul></li></ul><ul id="2e43a94a-1fa4-8025-9887-dc4a2370702a" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Job-to-be-Done</strong><ul id="2e43a94a-1fa4-8072-b3ec-c4ef54cadc2f" class="bulleted-list" dir="auto"><li style="list-style-type:circle">&quot;나는 질병(방광염/결석)을 앓고 있는 반려견의 치료 흐름이 끊기지 않게 하기 위해, 지금 당장 내 주변에서 &#x27;로얄캐닌 처방식&#x27; 재고를 보유하고 있는 병원을 즉시 찾아내어 확실히 구매를 확정할 수 있는 해결책을 찾고 있다.&quot;</li></ul></li></ul><ul id="2e43a94a-1fa4-8001-a498-c5ae893fd4ee" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>현재 대안의 한계</strong><ul id="2e43a94a-1fa4-8022-98df-d4ba57624b20" class="bulleted-list" dir="auto"><li style="list-style-type:circle">인근 동물병원 리스트를 뽑아 일일이 전화를 걸거나, 문을 연 병원을 찾아 무작정 방문해봄.</li></ul><ul id="2e43a94a-1fa4-80db-8b97-e3220e358062" class="bulleted-list" dir="auto"><li style="list-style-type:circle">실패 이유: 일요일이라 휴진인 병원이 많고, 전화를 받더라도 해당 사료(유이너리 S/O 등)의 재고가 떨어졌을 가능성이 커서 아이의 건강을 지키기 위한 대응 시간을 낭비함.</li></ul></li></ul><p id="2e43a94a-1fa4-802e-9f62-f45a77f1b301" class="" dir="auto">
+</p><p id="2de3a94a-1fa4-8004-ae6e-f6f79fe8844a" class="" dir="auto">
+</p><blockquote id="2e43a94a-1fa4-8054-9487-dc16bc6eb636" class="" dir="auto"><strong>세 페르소나의 JTBD 핵심 가치</strong></blockquote><table id="2e43a94a-1fa4-803d-9129-d584e918dbd7" class="simple-table" dir="ltr"><tbody><tr id="2e43a94a-1fa4-8059-80e2-f42e72bb7b7c" dir="ltr"><td id="G^EQ" class="" style="width:159px"><strong>페르소나</strong></td><td id="eqD^" class="" style="width:264px"><strong>페인 포인트 (Pain Point)</strong></td><td id="Hls]" class="" style="width:257px"><strong>핵심 가치 (Core Value)</strong></td></tr><tr id="2e43a94a-1fa4-80b9-90aa-f62cea4b5b6c" dir="ltr"><td id="G^EQ" class="" style="width:159px"><strong>이수진 (고관여)</strong></td><td id="eqD^" class="" style="width:264px">바쁜 업무 중 접종 스케줄 관리의 어려움</td><td id="Hls]" class="" style="width:257px"><span style="border-bottom:0.05em solid">데이터 기반의 자동 관리와 예약 편의성</span></td></tr><tr id="2e43a94a-1fa4-802a-a3bb-d6ccca7abd57" dir="ltr"><td id="G^EQ" class="" style="width:159px"><strong>김원장 (운영자)</strong></td><td id="eqD^" class="" style="width:264px">단순 재고/접종 확인 전화로 인한 진료 집중력 저하</td><td id="Hls]" class="" style="width:257px"><span style="border-bottom:0.05em solid">EMR 연동을 통한 병원 운영의 디지털 효율화</span></td></tr><tr id="2e43a94a-1fa4-800a-ac2e-c516c5a57d1e" dir="ltr"><td id="G^EQ" class="" style="width:159px"><strong>박지훈 (초보자)</strong></td><td id="eqD^" class="" style="width:264px"><span style="border-bottom:0.05em solid">치료용 처방 사료(로얄캐닌 등) 수급 불가</span> 시 아이 건강 악화 우려</td><td id="Hls]" class="" style="width:257px"><span style="border-bottom:0.05em solid">실시간 재고 확증</span>을 통한 치료 연속성 확보</td></tr></tbody></table><p id="2e43a94a-1fa4-80b7-8aa4-f8cd8d0e416f" class="" dir="auto">
+</p><p id="2e43a94a-1fa4-8077-8879-e61d2c2a3598" class="" dir="auto">
+</p><hr id="2e43a94a-1fa4-80f3-880d-eab68dad9165" dir="auto"/><p id="2e43a94a-1fa4-80a0-9ac4-e739cdf4ee7a" class="" dir="auto">
+</p><p id="2de3a94a-1fa4-80e7-b26c-e6378162119c" class="" dir="auto">
+</p><blockquote id="2de3a94a-1fa4-8028-8c66-d30dcec42ac4" class="" dir="auto"><strong>AI 롤플레이를 통한 심층 검증</strong></blockquote><p id="2e43a94a-1fa4-802a-b1ff-cddf2b563368" class="" dir="auto"><strong>1.이수진 (30대 직장인, 고관여 보호자)</strong></p><ul id="2e43a94a-1fa4-80fc-bf65-f1b44d8776d9" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>프롬프트 </strong><br/>&quot;너는 7살 시츄를 키우는 30대 직장인 &#x27;이수진&#x27;이야. 너는 아이 건강 관리에 매우 철저하지만, 회사 업무가 너무 바빠서 매번 병원 종이 수첩을 확인하거나 전화로 예약 잡는 게 큰 부담이야. 최근에 바쁜 프로젝트 때문에 접종 시기를 일주일 놓쳤을 때 아이에게 너무 미안해서 울기도 했어. 너는 매우 꼼꼼하지만 시간에 항상 쫓기는 말투로 답변해줘.”</li></ul><ul id="2e43a94a-1fa4-80ec-adb7-fd6346c516b9" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>질문 리스트 </strong></li></ul><table id="2e43a94a-1fa4-8050-a359-ed3ca4f61795" class="simple-table" dir="ltr"><tbody><tr id="2e43a94a-1fa4-8098-a3e4-c7bc6ce68811" dir="ltr"><td id="VjcH" class="" style="width:56px"><strong>번호</strong></td><td id="[gU\" class="" style="width:389px"><strong>심층 질문 내용</strong></td><td id="K|oU" class="" style="width:249px"><strong>질문의 의도 (Pain Point 발굴)</strong></td></tr><tr id="2e43a94a-1fa4-8072-92c4-e21d12d6ab18" dir="ltr"><td id="VjcH" class="" style="width:56px">1</td><td id="[gU\" class="" style="width:389px">오늘 업무 중에 아이 접종 시기가 지난 걸 발견했을 때, 가장 먼저 하려고 했던 행동은 무엇인가요?</td><td id="K|oU" class="" style="width:249px">문제 발생 시의 즉각적인 대응 패턴 확인</td></tr><tr id="2e43a94a-1fa4-8045-92e2-e1fedd4e8773" dir="ltr"><td id="VjcH" class="" style="width:56px">2</td><td id="[gU\" class="" style="width:389px">병원이 점심시간이거나 업무가 너무 바빠 전화를 못 할 때, 예약이나 기록 확인을 위해 어떤 대안을 찾으시나요?</td><td id="K|oU" class="" style="width:249px">아날로그 방식(전화)의 한계와 고충 도출</td></tr><tr id="2e43a94a-1fa4-804e-99c6-fe856f91daf8" dir="ltr"><td id="VjcH" class="" style="width:56px">3</td><td id="[gU\" class="" style="width:389px">직접 병원 기록(수첩 등)을 관리할 때 가장 번거롭거나 정보가 누락되어 실수가 잦았던 부분은 무엇인가요?</td><td id="K|oU" class="" style="width:249px">수동 관리의 비효율성과 불안 지점 파악</td></tr><tr id="2e43a94a-1fa4-80a0-a950-c43b836188e8" dir="ltr"><td id="VjcH" class="" style="width:56px">4</td><td id="[gU\" class="" style="width:389px">만약 앱에서 알림을 받고 터치 두 번 만에 날짜/시간 선택 후 예약이 확정된다면, 당신의 오후 풍경은 어떻게 달라질까요?</td><td id="K|oU" class="" style="width:249px">솔루션 도입 시 기대되는 심리적 해방감 측정</td></tr><tr id="2e43a94a-1fa4-8054-ae3d-ccc299b7f399" dir="ltr"><td id="VjcH" class="" style="width:56px">5</td><td id="[gU\" class="" style="width:389px">예약을 위해 병원에 전화를 걸 때(업무 중 몰래 하거나 통화 대기 등) 느끼는 가장 큰 심리적 피로감은 무엇인가요?</td><td id="K|oU" class="" style="width:249px">앱 예약 시스템의 필요성 강화</td></tr></tbody></table><ul id="2e43a94a-1fa4-802f-9f1e-fedc17bda78c" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>롤플레이 실행 </strong></li></ul><figure id="2e43a94a-1fa4-80f4-a22c-d805e242d2b4" class="block-color-gray link-to-page" data-notion-highlight="gray"><a href="https://app.notion.com/p/AI-2e43a94a1fa480f4a22cd805e242d2b4?pvs=21" data-notion-page-id="2e43a94a-1fa4-80f4-a22c-d805e242d2b4" data-notion-space-id="ebd3ec1d-6387-4c50-83fd-2d62b60beba5">페르소나 AI 롤 플레이 대화</a></figure><ul id="2e43a94a-1fa4-80c2-95c0-e0fb1381f544" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>답변 분석</strong></li></ul><table id="2e43a94a-1fa4-8022-aaf3-ca086557f460" class="simple-table" dir="ltr"><tbody><tr id="2e43a94a-1fa4-8013-81c8-cd226c8cc56d" dir="ltr"><td id="aQsp" class=""><strong>분류</strong></td><td id="tQtW" class="" style="width:235px"><strong>주요 내용 및 키워드</strong></td><td id="Ahn`" class="" style="width:343px"><strong>분석 결과 (나의 상태)</strong></td></tr><tr id="2e43a94a-1fa4-807a-b939-c5964a903e84" dir="ltr"><td id="aQsp" class=""><strong>반복 키워드</strong></td><td id="tQtW" class="" style="width:235px">#접종시기 #종이수첩 #전화예약 #회의 #7살시츄 #미안해</td><td id="Ahn`" class="" style="width:343px">업무와 아이 케어 사이에서 아슬아슬하게 줄타기 중인 전형적인 &#x27;바쁜 직장인 보호자&#x27;의 모습</td></tr><tr id="2e43a94a-1fa4-805c-ac39-f4c2cc2fd0fe" dir="ltr"><td id="aQsp" class=""><strong>핵심 감정</strong></td><td id="tQtW" class="" style="width:235px">죄책감, 초조함, 자괴감, 서러움, 답답함</td><td id="Ahn`" class="" style="width:343px">단순히 바쁜 것을 넘어, 아이 건강을 놓쳤다는 사실에 깊은 심리적 부채감을 느끼고 있음</td></tr><tr id="2e43a94a-1fa4-80e5-b61d-d9329ab182a2" dir="ltr"><td id="aQsp" class=""><strong>우선순위 (1순위)</strong></td><td id="tQtW" class="" style="width:235px">터치 몇 번으로 끝나는 예약 시스템</td><td id="Ahn`" class="" style="width:343px">업무 중 &#x27;눈치 보지 않고&#x27; 5초 안에 상황을 종료하고 싶은 익명성과 신속성이 최우선</td></tr><tr id="2e43a94a-1fa4-8044-924b-f6dda273a7b2" dir="ltr"><td id="aQsp" class=""><strong>우선순위 (2순위)</strong></td><td id="tQtW" class="" style="width:235px">디지털 데이터 통합 (기록 관리)</td><td id="Ahn`" class="" style="width:343px">흩어진 병원 기록을 한곳에 모아 불필요한 중복 검사와 설명을 줄이고 싶은 효율성 추구</td></tr><tr id="2e43a94a-1fa4-803f-8879-ff793c0ed78e" dir="ltr"><td id="aQsp" class=""><strong>우선순위 (3순위)</strong></td><td id="tQtW" class="" style="width:235px">자동 푸시 알림</td><td id="Ahn`" class="" style="width:343px">내 뇌를 대신해 일정을 기억해 줄 <span style="border-bottom:0.05em solid">강력한 리마인더</span> 필요</td></tr></tbody></table><ul id="2e43a94a-1fa4-8073-a9e1-d2e2e2c465dc" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Pain Point 추출</strong></li></ul><ol type="1" id="2e43a94a-1fa4-80c3-8785-c32d5669efd2" class="numbered-list" start="1" dir="auto"><li>물리적 한계: 종이 수첩은 집에 있고, 나는 회사에 있다. (기록의 단절)</li></ol><ol type="1" id="2e43a94a-1fa4-805c-bac0-ec6c8f83a2da" class="numbered-list" start="2" dir="auto"><li>심리적 한계: 업무 중 전화 예약은 눈치 보이고 피로도가 극심하다. (전화 공포증)</li></ol><ol type="1" id="2e43a94a-1fa4-80b8-963a-f78e8783d7bc" class="numbered-list" start="3" dir="auto"><li>트라우마: 접종 시기를 놓쳐 아이를 아프게 할 뻔했던 기억이 강한 스트레스로 작용함.</li></ol><p id="2e43a94a-1fa4-807e-a3f3-c065fa572828" class="" dir="auto">
+</p><p id="2e43a94a-1fa4-805c-8f63-f0748d863317" class="" dir="auto">
+</p><p id="2e43a94a-1fa4-8064-97f8-f2e65dc0c7af" class="" dir="auto">
+</p><p id="2e43a94a-1fa4-8080-bd0a-c81a82bcb9cf" class="" dir="auto"><strong>2.김원장 (40대 후반, 동물병원 원장)</strong></p><ul id="2e43a94a-1fa4-803b-bc22-c48658595fa2" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>프롬프트 </strong><br/>&quot;너는 15년 차 수의사 &#x27;김원장&#x27;이야. 너는 접종 문의 응대가 병원의 당연한 서비스라고 생각하지만, <span style="border-bottom:0.05em solid">신규 고객이 이전 병원에서의 진료 이력, 접종 기록, 복용 약물 정보를 전혀 모른 채 방문하거나 전화로만 상담하려 할 때 </span>큰 난감을 느껴. 정확한 병력을 모르면 진단이나 처방이 위험할 수 있는데, 보호자(특히 초보 보호자)들은 왜 기록이 필요한지 모르고 계속해서 같은 질문을 반복하거든. 너는 환자에게 정확하고 안전한 진료를 제공하고 싶은 책임감이 강하며, 파편화된 진료 기록을 통합하고 싶은 갈증이 큰 상태로 답변해줘.”</li></ul><ul id="2e43a94a-1fa4-8069-ad34-e93a33d7ff68" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>질문 리스트 </strong></li></ul><table id="2e43a94a-1fa4-804f-9f50-c94b7350a3d5" class="simple-table" dir="ltr"><tbody><tr id="2e43a94a-1fa4-8024-b7f8-f64eed76b824" dir="ltr"><td id="x&lt;Ud" class="" style="width:55px"><strong>번호</strong></td><td id="zrgV" class="" style="width:370px"><strong>심층 질문 내용</strong></td><td id="AA=^" class="" style="width:264px"><strong>질문의 의도 (Pain Point 발굴)</strong></td></tr><tr id="2e43a94a-1fa4-8052-90d1-fcd0ea6bf9d8" dir="ltr"><td id="x&lt;Ud" class="" style="width:55px">1</td><td id="zrgV" class="" style="width:370px">신규 고객이 이전 병원 기록 없이 방문했을 때, 정확한 진단이나 접종 스케줄을 잡기 위해 겪는 구체적인 어려움은 무엇인가요?</td><td id="AA=^" class="" style="width:264px">병력 데이터 부재가 진료 품질에 미치는 영향</td></tr><tr id="2e43a94a-1fa4-802f-ad3f-d4fea12566a3" dir="ltr"><td id="x&lt;Ud" class="" style="width:55px">2</td><td id="zrgV" class="" style="width:370px">보호자가 과거 진료 이력이나 복용 약물을 기억하지 못해 처방에 제약이 생기거나 위험할 뻔했던 순간이 있었나요?</td><td id="AA=^" class="" style="width:264px">오진 방지를 위한 데이터 통합의 절실함 검증</td></tr><tr id="2e43a94a-1fa4-8031-a3dd-e511f848d211" dir="ltr"><td id="x&lt;Ud" class="" style="width:55px">3</td><td id="zrgV" class="" style="width:370px">초보 보호자들이 기록 없이 반복적으로 같은 상담 전화를 걸어올 때, 진료에 집중해야 하는 원장으로서 느끼는 솔직한 심정은?</td><td id="AA=^" class="" style="width:264px">단순 반복 상담에 따른 업무 피로도 확인</td></tr><tr id="2e43a94a-1fa4-805e-98f8-e252512de296" dir="ltr"><td id="x&lt;Ud" class="" style="width:55px">4</td><td id="zrgV" class="" style="width:370px">우리 앱을 통해 타 병원의 기록까지 포함된 통합 데이터를 실시간으로 확인할 수 있다면, 신규 환자 진료 시 확신도가 얼마나 높아질까요?</td><td id="AA=^" class="" style="width:264px">EMR 연동 솔루션의 B2B 가치 제안 확인</td></tr><tr id="2e43a94a-1fa4-8024-adc2-d809be2299fc" dir="ltr"><td id="x&lt;Ud" class="" style="width:55px">5</td><td id="zrgV" class="" style="width:370px">보호자가 앱의 정확한 이력을 바탕으로 상담을 요청한다면, 리셉션과 진료실의 업무 흐름은 어떻게 변할 것으로 보시나요?</td><td id="AA=^" class="" style="width:264px">운영 효율화 및 간호사 업무 환경 개선 기대치</td></tr></tbody></table><ul id="2e43a94a-1fa4-8042-9b3d-d7853f11d3ec" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>롤플레이 실행 </strong></li></ul><figure id="2e43a94a-1fa4-807b-b60a-d8e4edba01bf" class="block-color-gray link-to-page" data-notion-highlight="gray"><a href="https://app.notion.com/p/AI-2e43a94a1fa4807bb60ad8e4edba01bf?pvs=21" data-notion-page-id="2e43a94a-1fa4-807b-b60a-d8e4edba01bf" data-notion-space-id="ebd3ec1d-6387-4c50-83fd-2d62b60beba5">페르소나 AI 롤 플레이 대화 </a></figure><ul id="2e43a94a-1fa4-80c2-8ca8-f81d6a9d4fac" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>답변 분석</strong></li></ul><table id="2e43a94a-1fa4-80fc-8256-df54f4c2d558" class="simple-table" dir="ltr"><tbody><tr id="2e43a94a-1fa4-800c-892a-eaab1b38d8ce" dir="ltr"><td id=":::U" class=""><strong>구분</strong></td><td id="FOWr" class="" style="width:286px"><strong>주요 내용</strong></td><td id="xhTQ" class="" style="width:282px"><strong>비고 (수의사의 관점)</strong></td></tr><tr id="2e43a94a-1fa4-8055-ab3a-da000d714be6" dir="ltr"><td id=":::U" class=""><strong>반복되는 키워드</strong></td><td id="FOWr" class="" style="width:286px">기록(Data), 통합, 파편화, 안전, 확신, 추세(Trend), 도박, 효율</td><td id="xhTQ" class="" style="width:282px">정보 부재가 단순한 불편을 넘어 &#x27;진료의 질&#x27;을 결정짓는 핵심 요소임을 강조함</td></tr><tr id="2e43a94a-1fa4-8097-b736-c21b1f433f7a" dir="ltr"><td id=":::U" class=""><strong>감정 표현</strong></td><td id="FOWr" class="" style="width:286px">난감함, 답답함, 무력감, 아찔함(공포), 설렘, 갈증, 책임감</td><td id="xhTQ" class="" style="width:282px">정보가 없을 땐 &#x27;불안&#x27;을 느끼고, 통합 데이터 가능성에는 &#x27;희열’에 가까운 기대감을 보임</td></tr><tr id="2e43a94a-1fa4-8060-b351-cf1457119569" dir="ltr"><td id=":::U" class=""><strong>우선순위 파악</strong></td><td id="FOWr" class="" style="width:286px">1. 환자 안전(사고 방지) &gt; 2. 정확한 진단 &gt; 3. 업무 효율 &gt; 4. 보호자 신뢰</td><td id="xhTQ" class="" style="width:282px">무엇보다 &#x27;아이의 생명&#x27;을 지키는 것을 최우선 가치로 두며, 데이터는 그 수단임</td></tr></tbody></table><ul id="2e43a94a-1fa4-8092-8c59-d02445837c03" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Pain Point 추출</strong></li></ul><ol type="1" id="2e43a94a-1fa4-8079-9eb8-ea279b5c0599" class="numbered-list" start="1" dir="auto"><li><strong>[안전] 정보 부재로 인한 투약 사고 및 의료 리스크</strong><br/>과거 부작용 이력이나 복용 약물을 몰라 생명을 위협하는 치명적인 처방 오류가 발생할 수 있습니다.</li></ol><ol type="1" id="2e43a94a-1fa4-805c-8765-c3203d062ba6" class="numbered-list" start="2" dir="auto"><li><strong>[효율] 반복되는 무의미한 문진과 진료 지연</strong><br/>파편화된 기록을 확인하느라 허비되는 시간이 정작 아픈 아이를 살피는 골든타임을 갉아먹습니다.</li></ol><ol type="1" id="2e43a94a-1fa4-8052-b61d-e40f83e5e311" class="numbered-list" start="3" dir="auto"><li><strong>[신뢰] 중복 검사로 인한 비용 부담과 과잉 진료 의심</strong><br/>과거 데이터와의 비교가 불가능해 신규 검사를 반복하게 되며, 이는 보호자의 경제적 부담과 불신으로 이어집니다.</li></ol><p id="2e43a94a-1fa4-805c-a7ba-ca8c1079012c" class="" dir="auto">
+</p><p id="2e43a94a-1fa4-80fc-aad0-e4251ea6a06a" class="" dir="auto">
+</p><p id="2e43a94a-1fa4-8044-b755-fe86767c4b3f" class="" dir="auto">
+</p><p id="2e43a94a-1fa4-80e8-93b4-e5b933d0237e" class="" dir="auto"><strong>3.박지훈 (20대 사회초년생, 초보 보호자)</strong></p><ul id="2e43a94a-1fa4-808e-8512-c919b25e1530" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>프롬프트</strong> <br/>&quot;너는 강아지를 처음 키우는 초보 보호자 &#x27;박지훈&#x27;이야. 아이가 방광염 진단을 받아 &#x27;로얄캐닌 유이너리&#x27; 처방 사료가 필수인데, 온라인 판매가 안 된다는 걸 알고 패닉에 빠졌어. 당장 사료를 못 구해 아이 병세가 나빠질까 봐 매우 초조해. 아이 건강을 지키고 싶은 절박한 마음으로 답변해줘.”</li></ul><ul id="2e43a94a-1fa4-80d4-80e5-ea6a47fea1a0" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>질문 리스트 </strong></li></ul><table id="2e43a94a-1fa4-8040-8480-faacf160b839" class="simple-table" dir="ltr"><tbody><tr id="2e43a94a-1fa4-8038-a131-db1277ae0b07" dir="ltr"><td id="~[F~" class="" style="width:54px"><strong>번호</strong></td><td id="EN&lt;W" class="" style="width:421.5234375px"><strong>심층 질문 내용</strong></td><td id="O}Bt" class="" style="width:219.4765625px"><strong>질문의 의도</strong></td></tr><tr id="2e43a94a-1fa4-80eb-84ad-cccee3ad09b1" dir="ltr"><td id="~[F~" class="" style="width:54px">1</td><td id="EN&lt;W" class="" style="width:421.5234375px">온라인에서 로얄캐닌 처방식을 살 수 없다는 걸 알았을 때, 아이 건강과 관련해 어떤 걱정이 들었나요?</td><td id="O}Bt" class="" style="width:219.4765625px">치료 연속성 중단에 대한 공포 확인</td></tr><tr id="2e43a94a-1fa4-804d-b60e-dfac34c805ff" dir="ltr"><td id="~[F~" class="" style="width:54px">2</td><td id="EN&lt;W" class="" style="width:421.5234375px">주변 병원 중 어디서 해당 사료를 파는지 모르는 상황에서 가장 막막했던 점은 무엇인가요?</td><td id="O}Bt" class="" style="width:219.4765625px">정보 비대칭의 고통 도출</td></tr><tr id="2e43a94a-1fa4-80fb-8016-d39b18857fd9" dir="ltr"><td id="~[F~" class="" style="width:54px">3</td><td id="EN&lt;W" class="" style="width:421.5234375px">사료를 구하기 위해 여러 병원에 연락하거나 방문하며 겪은 시행착오는 무엇인가요?</td><td id="O}Bt" class="" style="width:219.4765625px">탐색 과정의 비효율성 사례 수집</td></tr><tr id="2e43a94a-1fa4-8011-ab94-edc6482e2023" dir="ltr"><td id="~[F~" class="" style="width:54px">4</td><td id="EN&lt;W" class="" style="width:421.5234375px">앱의 &#x27;실시간 재고 확증&#x27; 기능이 당신의 불안을 어느 정도나 덜어줄 수 있을까요?</td><td id="O}Bt" class="" style="width:219.4765625px">서비스의 심리적 안심 가치 측정</td></tr><tr id="2e43a94a-1fa4-809b-873c-f120c3de69d2" dir="ltr"><td id="~[F~" class="" style="width:54px">5</td><td id="EN&lt;W" class="" style="width:421.5234375px">방문 전 앱에서 &#x27;재고 선점 결제&#x27;를 할 수 있다면, 헛걸음을 방지하기 위해 이용할 의사가 있나요?</td><td id="O}Bt" class="" style="width:219.4765625px">수익 모델에 대한 수용도 확인</td></tr></tbody></table><ul id="2e43a94a-1fa4-8034-b9de-ff431eedd9e9" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>롤플레이 실행 </strong></li></ul><figure id="2e43a94a-1fa4-8019-b592-c572c1558de2" class="block-color-gray link-to-page" data-notion-highlight="gray"><a href="https://app.notion.com/p/AI-2e43a94a1fa48019b592c572c1558de2?pvs=21" data-notion-page-id="2e43a94a-1fa4-8019-b592-c572c1558de2" data-notion-space-id="ebd3ec1d-6387-4c50-83fd-2d62b60beba5">페르소나 AI 롤 플레이 대화 </a></figure><ul id="2e43a94a-1fa4-803b-a80c-c11b9f30afa6" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>답변 분석</strong></li></ul><table id="2e43a94a-1fa4-80f6-9240-f6f7a6adaac2" class="simple-table" dir="ltr"><tbody><tr id="2e43a94a-1fa4-80b2-9128-ea279c329833" dir="ltr"><td id="]`?C" class="" style="width:105px"><strong>구분</strong></td><td id="DIXW" class="" style="width:368px"><strong>주요 내용 및 분석</strong></td><td id="|iWq" class="" style="width:218px"><strong>비고</strong></td></tr><tr id="2e43a94a-1fa4-80e8-a7ec-ecd9a02ebc1d" dir="ltr"><td id="]`?C" class="" style="width:105px"><strong>반복 키워드</strong></td><td id="DIXW" class="" style="width:368px">재고(확인/확증), 헛걸음, 실시간, 초보 보호자, 방광염/통증, 전화 문의, 결제/선점</td><td id="|iWq" class="" style="width:218px">&#x27;확신&#x27;에 대한 갈망이 높음</td></tr><tr id="2e43a94a-1fa4-8078-a0f3-d2fac9bd5619" dir="ltr"><td id="]`?C" class="" style="width:105px"><strong>감정 표현</strong></td><td id="DIXW" class="" style="width:368px">패닉/눈앞이 캄캄함, 손이 떨림, 죄책감(미안함), 피를 말리는 기분, 불안/초조</td><td id="|iWq" class="" style="width:218px">공포에 가까운 절박함</td></tr><tr id="2e43a94a-1fa4-8050-bb00-f3c9bd9d2a74" dir="ltr"><td id="]`?C" class="" style="width:105px"><strong>가장 큰 고충</strong></td><td id="DIXW" class="" style="width:368px">정보의 불확실성 (어느 병원에 어떤 사료가 있는지 모름)</td><td id="|iWq" class="" style="width:218px">물리적 거리보다 &#x27;정보&#x27;가 문제</td></tr><tr id="2e43a94a-1fa4-8033-9030-d248e99e3310" dir="ltr"><td id="]`?C" class="" style="width:105px"><strong>최고 우선순위</strong></td><td id="DIXW" class="" style="width:368px">1. 아이의 통증 중단, 2. 헛걸음 방지, 3. 정확한 제품 확보</td><td id="|iWq" class="" style="width:218px">생존과 직결된 문제 해결</td></tr></tbody></table><ul id="2e43a94a-1fa4-809e-b8d6-c813789ae4e0" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>Pain Point 추출</strong></li></ul><ol type="1" id="2e43a94a-1fa4-8068-9cfc-c97cab91772d" class="numbered-list" start="1" dir="auto"><li><strong>정보의 불확실성:</strong> 근처 어느 병원에 내가 찾는 정확한 처방식 재고가 있는지 알 수 없어 오로지 &#x27;운&#x27;에 맡겨야 하는 막막함.</li></ol><ol type="1" id="2e43a94a-1fa4-80d3-9250-dad6ab1887e1" class="numbered-list" start="2" dir="auto"><li><strong>헛걸음에 대한 공포:</strong> 퇴근 후 촉박한 시간 속에 아이는 굶고 있는데, 무작정 찾아간 병원에서 재고 없음이나 영업 종료를 마주할 때의 절망감.</li></ol><ol type="1" id="2e43a94a-1fa4-80f7-8118-ec02b2acc51f" class="numbered-list" start="3" dir="auto"><li><strong>보호자로서의 무력감:</strong> 온라인 구매 차단과 복잡한 처방식 종류 사이에서 정보를 찾지 못해 아이의 병세를 악화시킬 것만 같은 심리적 죄책감.</li></ol><p id="2e43a94a-1fa4-801b-8345-c587b95cb76c" class="" dir="auto">
+</p><p id="2e43a94a-1fa4-80e7-b88c-c87d957d1dac" class="" dir="auto">
+</p><p id="2e43a94a-1fa4-807a-9656-d793188e8b14" class="" dir="auto">
+</p><h3 id="2e43a94a-1fa4-808e-87bc-fb9692491768" class="block-color-default_background" data-notion-highlight="default_background" dir="auto"><mark class="highlight-blue_background" data-notion-highlight="blue_background"><strong>Pain Point 우선순위 매트릭스 작성</strong></mark></h3><p id="2e43a94a-1fa4-801c-b5a7-c9c61afad834" class="" dir="auto"><strong>1. [보호자 입장] Pain Point 우선순위 매트릭스</strong></p><p id="2e43a94a-1fa4-8011-9e11-e9a02bb498be" class="" dir="auto">보호자에게는 **&#x27;아이의 건강 안전&#x27;**과 **&#x27;시간 효율성&#x27;**이 가장 큰 기준입니다. 특히 질병 관리와 직결된 사료 수급 문제가 가장 높은 점수를 기록했습니다.</p><table id="2e43a94a-1fa4-807a-9a4d-f70f150bcf99" class="simple-table" dir="ltr"><tbody><tr id="2e43a94a-1fa4-80c2-a6b6-e439482ff7a2" dir="ltr"><td id="jKrf" class="" style="width:158px"><strong>Pain Point (불편 요소)</strong></td><td id="MZPF" class="" style="width:99px"><strong>심각도 (1-5)</strong></td><td id="=CmD" class="" style="width:99px"><strong>발생 빈도</strong></td><td id="gzEv" class="" style="width:114px"><strong>현재 해결 방법</strong></td><td id="JMY=" class="" style="width:99px"><strong>우선순위 점수</strong></td><td id="NYJ\" class="" style="width:105px"><strong>우선순위</strong></td></tr><tr id="2e43a94a-1fa4-8003-9ef4-ee0291e03b36" dir="ltr"><td id="jKrf" class="" style="width:158px"><strong>질환용 처방 사료(로얄캐닌 등) 수급 불확실성</strong></td><td id="MZPF" class="" style="width:99px">5</td><td id="=CmD" class="" style="width:99px">주 1~2회</td><td id="gzEv" class="" style="width:114px">여러 병원 무작정 전화/방문</td><td id="JMY=" class="" style="width:99px">25</td><td id="NYJ\" class="" style="width:105px"><strong>Critical</strong></td></tr><tr id="2e43a94a-1fa4-80a9-87b9-f64909a885d7" dir="ltr"><td id="jKrf" class="" style="width:158px"><strong>비가시적인 진료 예약 및 일정 관리 프로세스</strong></td><td id="MZPF" class="" style="width:99px">4</td><td id="=CmD" class="" style="width:99px">주 3~4회</td><td id="gzEv" class="" style="width:114px">수동 캘린더 메모/업무 중 전화</td><td id="JMY=" class="" style="width:99px">16</td><td id="NYJ\" class="" style="width:105px"><strong>High</strong></td></tr><tr id="2e43a94a-1fa4-8076-8ac6-eb980ef9abb0" dir="ltr"><td id="jKrf" class="" style="width:158px"><strong>케어 지연(접종 누락 등)에 따른 심리적 죄책감</strong></td><td id="MZPF" class="" style="width:99px">4</td><td id="=CmD" class="" style="width:99px">월 2~3회</td><td id="gzEv" class="" style="width:114px">자책 및 커뮤니티 조언 구함</td><td id="JMY=" class="" style="width:99px">12</td><td id="NYJ\" class="" style="width:105px"><strong>High</strong></td></tr><tr id="2e43a94a-1fa4-80a2-8dd4-d3e9296c767a" dir="ltr"><td id="jKrf" class="" style="width:158px"><strong>질환 케어 정보 부족으로 인한 심리적 패닉</strong></td><td id="MZPF" class="" style="width:99px">4</td><td id="=CmD" class="" style="width:99px">월 1~2회</td><td id="gzEv" class="" style="width:114px">포털 검색 및 카페 질문</td><td id="JMY=" class="" style="width:99px">8</td><td id="NYJ\" class="" style="width:105px"><strong>Medium</strong></td></tr><tr id="2e43a94a-1fa4-809c-9653-fbb2af7482a7" dir="ltr"><td id="jKrf" class="" style="width:158px"><strong>종이 수첩 등 파편화된 건강 기록 관리</strong></td><td id="MZPF" class="" style="width:99px">2</td><td id="=CmD" class="" style="width:99px">월 1~2회</td><td id="gzEv" class="" style="width:114px">종이 수첩 보관/사진 촬영</td><td id="JMY=" class="" style="width:99px">4</td><td id="NYJ\" class="" style="width:105px"><strong>Low</strong></td></tr><tr id="2e43a94a-1fa4-8057-af18-dfacaed5cb83" dir="ltr"><td id="jKrf" class="" style="width:158px"><strong>전문적인 처방 사료 급여 가이드라인 부재</strong></td><td id="MZPF" class="" style="width:99px">2</td><td id="=CmD" class="" style="width:99px">월 1회</td><td id="gzEv" class="" style="width:114px">유튜브/블로그 정보 검색</td><td id="JMY=" class="" style="width:99px">2</td><td id="NYJ\" class="" style="width:105px"><strong>Low</strong></td></tr></tbody></table><p id="2e43a94a-1fa4-8084-a3e0-ebb8f8c5dbe4" class="" dir="auto">
+</p><p id="2e43a94a-1fa4-8022-93a5-c8f64eb55050" class="" dir="auto"><strong>2. [병원 입장] Pain Point 우선순위 매트릭스</strong></p><p id="2e43a94a-1fa4-8022-b1e7-da82b9e84217" class="" dir="auto">병원(수의사/간호사)에게는 **&#x27;진료의 정확성&#x27;**과 **&#x27;운영 업무의 효율화&#x27;**가 핵심입니다. 신규 환자의 데이터 공백을 메우는 것이 가장 시급한 과제입니다.</p><table id="2e43a94a-1fa4-8010-a76c-c0f5ea785fca" class="simple-table" dir="ltr"><tbody><tr id="2e43a94a-1fa4-805a-b430-e9ee941fac41" dir="ltr"><td id="cVHU" class="" style="width:158px"><strong>Pain Point (불편 요소)</strong></td><td id="zmRY" class="" style="width:100px"><strong>심각도 (1-5)</strong></td><td id="rtzv" class="" style="width:82px"><strong>발생 빈도</strong></td><td id="&gt;TbF" class="" style="width:136px"><strong>현재 해결 방법</strong></td><td id="uEzS" class="" style="width:96px"><strong>우선순위 점수</strong></td><td id="fDcv" class="" style="width:109px"><strong>우선순위</strong></td></tr><tr id="2e43a94a-1fa4-8003-bb05-da9578375436" dir="ltr"><td id="cVHU" class="" style="width:158px"><strong>신규 환자의 &#x27;병력/접종 기록 공백&#x27; 및 처방 리스크</strong></td><td id="zmRY" class="" style="width:100px">5</td><td id="rtzv" class="" style="width:82px">일 2~3회</td><td id="&gt;TbF" class="" style="width:136px">보호자 문진(기억에만 의존)</td><td id="uEzS" class="" style="width:96px">15</td><td id="fDcv" class="" style="width:109px"><strong>Critical</strong></td></tr><tr id="2e43a94a-1fa4-8028-8630-e2702e98173c" dir="ltr"><td id="cVHU" class="" style="width:158px"><strong>단순 접종/재고 확인 전화로 인한 진료 흐름 저해</strong></td><td id="zmRY" class="" style="width:100px">3</td><td id="rtzv" class="" style="width:82px">일 5회 이상</td><td id="&gt;TbF" class="" style="width:136px">리셉션 인력의 수동 대응</td><td id="uEzS" class="" style="width:96px">15</td><td id="fDcv" class="" style="width:109px"><strong>Critical</strong></td></tr><tr id="2e43a94a-1fa4-80c3-ba21-db0d8ac9d7c1" dir="ltr"><td id="cVHU" class="" style="width:158px"><strong>보호자에게 동일한 케어 정보 반복 설명</strong></td><td id="zmRY" class="" style="width:100px">3</td><td id="rtzv" class="" style="width:82px">일 3~4회</td><td id="&gt;TbF" class="" style="width:136px">대면 구두 설명 및 유인물</td><td id="uEzS" class="" style="width:96px">12</td><td id="fDcv" class="" style="width:109px"><strong>High</strong></td></tr><tr id="2e43a94a-1fa4-80d3-8151-cc45b83946b4" dir="ltr"><td id="cVHU" class="" style="width:158px"><strong>예약 충돌 및 데이터 수동 입력에 따른 업무 부하</strong></td><td id="zmRY" class="" style="width:100px">3</td><td id="rtzv" class="" style="width:82px">일 단위</td><td id="&gt;TbF" class="" style="width:136px">EMR/장부 수동 대조 및 입력</td><td id="uEzS" class="" style="width:96px">9</td><td id="fDcv" class="" style="width:109px"><strong>Medium</strong></td></tr><tr id="2e43a94a-1fa4-8023-9f5f-e60d62694751" dir="ltr"><td id="cVHU" class="" style="width:158px"><strong>재방문(접종/검진) 유도를 위한 마케팅 수단 부재</strong></td><td id="zmRY" class="" style="width:100px">2</td><td id="rtzv" class="" style="width:82px">주 단위</td><td id="&gt;TbF" class="" style="width:136px">수동 문자 발송 및 전화</td><td id="uEzS" class="" style="width:96px">4</td><td id="fDcv" class="" style="width:109px"><strong>Low</strong></td></tr><tr id="2e43a94a-1fa4-8080-86de-fe01d78c3346" dir="ltr"><td id="cVHU" class="" style="width:158px"><strong>아날로그식 재고 파악 및 발주 관리의 번거로움</strong></td><td id="zmRY" class="" style="width:100px">2</td><td id="rtzv" class="" style="width:82px">주 1회</td><td id="&gt;TbF" class="" style="width:136px">창고 직접 확인 및 수동 발주</td><td id="uEzS" class="" style="width:96px">2</td><td id="fDcv" class="" style="width:109px"><strong>Low</strong></td></tr></tbody></table><p id="2e43a94a-1fa4-80db-9d58-e408f6b8fbfd" class="" dir="auto">
+</p><p id="2e43a94a-1fa4-80c8-a403-e6052119654d" class="" dir="auto">
+</p><blockquote id="2e43a94a-1fa4-8010-a8e2-d775c9d33d65" class="" dir="auto"><strong>페르소나-JTBD 통합 다이어그램</strong></blockquote><pre id="2e43a94a-1fa4-80d5-a281-d06feb629f51" class="code code-wrap" data-notion-code-syntax="mermaid"><code class="language-mermaid" style="white-space:pre-wrap;word-break:break-all">graph TD
+    %% 노드 스타일 정의
+    classDef Critical fill:#ffcccc,stroke:#ff0000,stroke-width:3px,color:#000;
+    classDef High fill:#ffe5cc,stroke:#ff8c00,stroke-width:2px,color:#000;
+    classDef Medium fill:#fff2cc,stroke:#d4a017,stroke-width:1px,color:#000;
+    classDef Persona fill:#f9f9f9,stroke:#333,stroke-width:2px,font-weight:bold;
+
+    %% 1. 이수진 페르소나 흐름
+    S1[&lt;b&gt;이수진&lt;/b&gt;&lt;br/&gt;30대 직장인/고관여] --&gt; C1[&lt;b&gt;Context&lt;/b&gt;&lt;br/&gt;업무 중/바쁜 평일]
+    C1 --&gt; T1[&lt;b&gt;Trigger&lt;/b&gt;&lt;br/&gt;모호한 접종 알림/기억]
+    T1 --&gt; J1[&lt;b&gt;JTBD&lt;/b&gt;&lt;br/&gt;에너지 낭비 없는&lt;br/&gt;자동 관리 및 즉시 예약]
+    J1 --&gt; P1_1[&lt;b&gt;Pain Point 1&lt;/b&gt;&lt;br/&gt;비가시적 예약 프로세스]:::High
+    J1 --&gt; P1_2[&lt;b&gt;Pain Point 2&lt;/b&gt;&lt;br/&gt;지연된 케어에 대한 죄책감]:::Medium
+
+    %% 2. 김원장 페르소나 흐름
+    K1[&lt;b&gt;김원장&lt;/b&gt;&lt;br/&gt;15년차 수의사/운영자] --&gt; C2[&lt;b&gt;Context&lt;/b&gt;&lt;br/&gt;진료실/리셉션 혼선]
+    C2 --&gt; T2[&lt;b&gt;Trigger&lt;/b&gt;&lt;br/&gt;신규 고객의 기록 부재 방문]
+    T2 --&gt; J2[&lt;b&gt;JTBD&lt;/b&gt;&lt;br/&gt;통합 데이터 기반&lt;br/&gt;정확한 진단 및 운영 효율화]
+    J2 --&gt; P2_1[&lt;b&gt;Pain Point 1&lt;/b&gt;&lt;br/&gt;신규 환자 병력공백/처방리스크]:::Critical
+    J2 --&gt; P2_2[&lt;b&gt;Pain Point 2&lt;/b&gt;&lt;br/&gt;단순 문의로 인한 진료저해]:::Critical
+
+    %% 3. 박지훈 페르소나 흐름
+    J3_P[&lt;b&gt;박지훈&lt;/b&gt;&lt;br/&gt;20대 초보 보호자] --&gt; C3[&lt;b&gt;Context&lt;/b&gt;&lt;br/&gt;주말 저녁/집/사료소진]
+    C3 --&gt; T3[&lt;b&gt;Trigger&lt;/b&gt;&lt;br/&gt;질환용 사료 온라인 구매불가 확인]
+    T3 --&gt; J3[&lt;b&gt;JTBD&lt;/b&gt;&lt;br/&gt;치료 연속성을 위한&lt;br/&gt;실시간 재고 확증 및 선점]
+    J3 --&gt; P3_1[&lt;b&gt;Pain Point 1&lt;/b&gt;&lt;br/&gt;처방 사료 수급 불확실성/공포]:::Critical
+    J3 --&gt; P3_2[&lt;b&gt;Pain Point 2&lt;/b&gt;&lt;br/&gt;정보 비대칭/탐색 비용 과다]:::High
+
+    %% 우선순위 연결 및 강조
+    P3_1 --- Link1((핵심 해결 과제))
+    P2_1 --- Link1
+    P2_2 --- Link1
+    
+    style Link1 fill:#fff,stroke:#333,stroke-dasharray: 5 5</code></pre><p id="2e43a94a-1fa4-8022-a6a3-c8911340d7ed" class="" dir="auto">
+</p><p id="2e43a94a-1fa4-8065-8be2-ee57cfc1df05" class="" dir="auto">
+</p><hr id="2e43a94a-1fa4-808f-bee9-f180919a8204" dir="auto"/><p id="2e43a94a-1fa4-8028-8bcb-cbd2b0377cdb" class="" dir="auto">
+</p><p id="2e43a94a-1fa4-8051-bc75-d6d3f5163e76" class="" dir="auto">
+</p><h3 id="2e43a94a-1fa4-8098-90a7-fa2b09d38727" class="" dir="auto"><mark class="highlight-blue_background" data-notion-highlight="blue_background">TAM → SAM → SOM 추정 프로세스</mark></h3><pre id="2e43a94a-1fa4-80be-95a6-f1f394b933f5" class="code code-wrap" data-notion-code-syntax="mermaid"><code class="language-mermaid" style="white-space:pre-wrap;word-break:break-all"> graph TD
+    %% 노드 정의 및 텍스트 설정
+    Node_TAM[&quot;&lt;b&gt;TAM (Total Addressable Market)&lt;/b&gt;&lt;br/&gt;국내 반려동물 전체 시장&lt;br/&gt;(약 1,500만 반려인 및 연관 산업 전체)&quot;]
+    Node_SAM[&quot;&lt;b&gt;SAM (Serviceable Available Market)&lt;/b&gt;&lt;br/&gt;디지털 케어 및 의료 서비스 시장&lt;br/&gt;(동물병원 이용 보호자 및 처방 사료 구매 유저)&quot;]
+    Node_SOM[&quot;&lt;b&gt;SOM (Serviceable Obtainable Market)&lt;/b&gt;&lt;br/&gt;실시간 데이터 연동 기반 타겟 시장&lt;br/&gt;(EMR 연동 병원 내원객 및 로얄캐닌 처방식 유저)&quot;]
+
+    %% 계층 구조 연결
+    Node_TAM --&gt; Node_SAM
+    Node_SAM --&gt; Node_SOM
+
+    %% 세부 설명 연결 (점선)
+    Desc_TAM[&lt;b&gt;전체 시장&lt;/b&gt;&lt;br/&gt;국내 펫코노미 시장 규모 약 8조 원 추산]
+    Desc_SAM[&lt;b&gt;거점 시장&lt;/b&gt;&lt;br/&gt;질환 관리가 필요한 의료 서비스 고관여 유저]
+    Desc_SOM[&lt;b&gt;수익 시장&lt;/b&gt;&lt;br/&gt;수도권 거점 병원 연동 및 처방식 긴급 수요자]
+
+    Node_TAM -.-&gt; Desc_TAM
+    Node_SAM -.-&gt; Desc_SAM
+    Node_SOM -.-&gt; Desc_SOM
+
+    %% 스타일 정의
+    classDef Style_TAM fill:#e1f5fe,stroke:#01579b,stroke-width:2px,color:#000
+    classDef Style_SAM fill:#b3e5fc,stroke:#0288d1,stroke-width:2px,color:#000
+    classDef Style_SOM fill:#81d4fa,stroke:#0277bd,stroke-width:4px,color:#000
+
+    %% 스타일 적용
+    class Node_TAM Style_TAM
+    class Node_SAM Style_SAM
+    class Node_SOM Style_SOM
+    class Desc_TAM Style_TAM
+    class Desc_SAM Style_SAM
+    class Desc_SOM Style_SOM</code></pre><p id="2e43a94a-1fa4-80f9-bdb4-c390002ebf53" class="" dir="auto">
+</p><table id="2e43a94a-1fa4-8059-bb5e-ec035b246c1c" class="simple-table" dir="ltr"><tbody><tr id="2e43a94a-1fa4-8021-8017-fa4995a6770a" dir="ltr"><td id="aV&gt;;" class=""><strong>단계</strong></td><td id="|XvJ" class="" style="width:187.6953125px"><strong>계산식</strong></td><td id="_Vq^" class="" style="width:146.953125px"><strong>추정 데이터 (수치)</strong></td><td id="LEHU" class="" style="width:196.3515625px"><strong>근거 데이터</strong></td></tr><tr id="2e43a94a-1fa4-80ee-993d-fcf1e07d7690" dir="ltr"><td id="aV&gt;;" class=""><strong>TAM</strong></td><td id="|XvJ" class="" style="width:187.6953125px"><strong>전체 반려 가구 수(600만) × 연평균 지출액(180만 원)</strong></td><td id="_Vq^" class="" style="width:146.953125px"><strong>약 10.8조 원</strong></td><td id="LEHU" class="" style="width:196.3515625px">통계청 인구주택총조사(양육 가구 비율) + 농식품부 반려동물 산업 실태조사</td></tr><tr id="2e43a94a-1fa4-8027-9de5-ea57f3ad3975" dir="ltr"><td id="aV&gt;;" class=""><strong>SAM</strong></td><td id="|XvJ" class="" style="width:187.6953125px"><strong>수도권 고관여 보호자(300만) × 병원/처방 지출 비중(40%)</strong></td><td id="_Vq^" class="" style="width:146.953125px"><strong>약 2.1조 원</strong></td><td id="LEHU" class="" style="width:196.3515625px">수도권 집중도(50%) 및 유료 의료 서비스 이용 비중(오픈서베이 펫 리포트)</td></tr><tr id="2e43a94a-1fa4-805a-b931-c9e0cb8965a4" dir="ltr"><td id="aV&gt;;" class=""><strong>SOM</strong></td><td id="|XvJ" class="" style="width:187.6953125px"><strong>SAM × 초기 목표 점유율(3%) × 앱 결제 전환율(20%)</strong></td><td id="_Vq^" class="" style="width:146.953125px"><strong>약 126억 원</strong></td><td id="LEHU" class="" style="width:196.3515625px">초기 거점 병원 100~150개소 제휴 시 예상 거래액 및 유사 앱 전환율 벤치마크</td></tr></tbody></table><p id="2e43a94a-1fa4-800a-bd6a-cdfe13a4b96d" class="" dir="auto"><br/><br/></p><hr id="2e43a94a-1fa4-8002-a808-c6ea9aa1861c" dir="auto"/><p id="2e43a94a-1fa4-8081-9ceb-e5532f3cf11e" class="" dir="auto">
+</p><p id="2e43a94a-1fa4-80bc-9da8-f9a5cf288007" class="" dir="auto">
+</p><p id="2e43a94a-1fa4-80e5-b0e1-d8ae472018d3" class="" dir="auto">
+</p><h3 id="2e43a94a-1fa4-80a0-ba7e-ea03f71981cc" class="" dir="auto"><mark class="highlight-blue_background" data-notion-highlight="blue_background"><strong>Value Proposition 핵심 요약</strong></mark></h3><table id="2e43a94a-1fa4-80e5-8224-e08cb0d5b2ed" class="simple-table" dir="ltr"><tbody><tr id="2e43a94a-1fa4-802d-aa0d-ff59341fe0ce" dir="ltr"><td id="aT;l" class="" style="width:93px"><strong>구분</strong></td><td id="MULb" class="" style="width:260px"><strong>고객이 얻는 핵심 가치</strong></td><td id="{&lt;jT" class="" style="width:300px"><strong>기존 대안 대비 차별점</strong></td></tr><tr id="2e43a94a-1fa4-800e-843e-f8796a4e5f35" dir="ltr"><td id="aT;l" class="" style="width:93px"><strong>보호자 측면</strong></td><td id="MULb" class="" style="width:260px"><strong>선제적 치료 및 접종 관리:</strong> 병원 데이터 기반 앱푸시를 통해 최적의 접종/검진 타이밍을 놓치지 않도록 가이드</td><td id="{&lt;jT" class="" style="width:300px"><strong>데이터 기반 정밀 알림:</strong> 보호자가 기억하거나 수동 입력할 필요 없이, 병원 EMR과 연동되어 실제 다음 진료 시점을 정확히 리마인드</td></tr><tr id="2e43a94a-1fa4-80f5-a435-dc754d43de18" dir="ltr"><td id="aT;l" class="" style="width:93px"><strong>보호자 측면</strong></td><td id="MULb" class="" style="width:260px"><strong>치료 중단 없는 연속성:</strong> 지역 이동이나 이사 시에도 이전 병원의 모든 이력을 새 병원에 즉시 공유하여 끊김 없는 치료 가능</td><td id="{&lt;jT" class="" style="width:300px"><strong>디지털 병력 이동성:</strong> 종이 수첩 없이도 앱 내 통합 ID를 통해 전국 어디서든 아이의 과거 병력과 처방 이력을 즉시 호출 및 공유</td></tr><tr id="2e43a94a-1fa4-805e-b96e-d737b5bd5a6a" dir="ltr"><td id="aT;l" class="" style="width:93px"><strong>보호자 측면</strong></td><td id="MULb" class="" style="width:260px"><strong>처방식의 실시간 재고 확인:</strong> 질환 관리에 필수적인 처방 사료의 재고 여부를 지도에서 확인하고 즉시 선점 결제</td><td id="{&lt;jT" class="" style="width:300px"><strong>확증된 재고 정보:</strong> 여러 병원에 전화를 돌려 묻는 번거로움 없이, 실시간 POS 데이터로 재고를 확인하고 헛걸음 없는 방문 가능</td></tr><tr id="2e43a94a-1fa4-8086-b4fc-e1456560e10b" dir="ltr"><td id="aT;l" class="" style="width:93px"><strong>병원 측면</strong></td><td id="MULb" class="" style="width:260px"><strong>진료 안정성 및 운영 효율:</strong> 환자의 과거력을 명확히 파악하여 오진을 방지하고, 단순 문의 응대 자동화로 진료에만 집중</td><td id="{&lt;jT" class="" style="width:300px"><strong>지능형 병원 운영 솔루션:</strong> 데이터 부재로 인한 문진 지연을 방지하고, 접종/재고 관련 단순 전화 문의를 앱으로 대체하여 인력 효율 극대화</td></tr></tbody></table><p id="2e43a94a-1fa4-80b1-902c-d248a5bfb399" class="" dir="auto">
+</p><pre id="2e43a94a-1fa4-80c2-bffd-c4fdc6509cbc" class="code code-wrap" data-notion-code-syntax="mermaid"><code class="language-mermaid" style="white-space:pre-wrap;word-break:break-all">graph TD
+    %% 스타일 정의
+    classDef Core fill:#f0f4f8,stroke:#2c3e50,stroke-width:3px,color:#2c3e50;
+    classDef Value fill:#e3f2fd,stroke:#1976d2,stroke-width:2px;
+    classDef Diff fill:#fff3e0,stroke:#e65100,stroke-width:2px;
+    classDef Goal fill:#f1f8e9,stroke:#558b2f,stroke-width:2px;
+
+    subgraph VP [&lt;b&gt;반려동물 의료 데이터 통합 플랫폼 Value Proposition&lt;/b&gt;]
+    
+    %% 핵심 가치 (4대 축)
+    V1[&quot;&lt;b&gt;1. 선제적 관리&lt;/b&gt;&lt;br/&gt;데이터 기반 맞춤형&lt;br/&gt;치료/접종 앱푸시 알림&quot;]:::Value
+    V2[&quot;&lt;b&gt;2. 치료 연속성&lt;/b&gt;&lt;br/&gt;지역 이동 시에도&lt;br/&gt;단절 없는 통합 이력 공유&quot;]:::Value
+    V3[&quot;&lt;b&gt;3. 처방식 재고&lt;/b&gt;&lt;br/&gt;실시간 재고 확증 및&lt;br/&gt;즉시 예약/결제 시스템&quot;]:::Value
+    V4[&quot;&lt;b&gt;4. 운영 효율성&lt;/b&gt;&lt;br/&gt;진료 안정성 확보 및&lt;br/&gt;단순 응대 자동화&quot;]:::Value
+
+    %% 차별점
+    D1[&quot;&lt;b&gt;실시간성&lt;/b&gt;&lt;br/&gt;EMR/POS 연동으로&lt;br/&gt;전화 없는 즉각 대응&quot;]:::Diff
+    D2[&quot;&lt;b&gt;연결성&lt;/b&gt;&lt;br/&gt;파편화된 의료 데이터를&lt;br/&gt;하나의 ID로 통합&quot;]:::Diff
+
+    %% 최종 목표
+    G1((&quot;&lt;b&gt;치료 중단 없는&lt;br/&gt;건강한 생애주기 케어&lt;/b&gt;&quot;)):::Goal
+
+    %% 구조 연결
+    V1 &amp; V2 &amp; V3 &amp; V4 --- D1
+    V1 &amp; V2 &amp; V3 &amp; V4 --- D2
+    D1 &amp; D2 --- G1
+
+    end</code></pre><p id="2e43a94a-1fa4-800a-9b7f-cd3b809911ce" class="" dir="auto">
+</p><p id="2dd3a94a-1fa4-802b-a866-c9776eabf6df" class="" dir="auto">
+</p><p id="2dd3a94a-1fa4-80ac-84c9-df8c096d73b1" class="" dir="auto">
+</p><h3 id="2dd3a94a-1fa4-8004-a771-d88bb73c6b1b" class="" dir="auto"><mark class="highlight-blue_background" data-notion-highlight="blue_background">AI 적용 포인트</mark></h3><table id="2e43a94a-1fa4-804a-af68-e189392223dc" class="simple-table" dir="ltr"><tbody><tr id="2e43a94a-1fa4-807e-a5e9-e6700a5dda1c" dir="ltr"><td id="~J?q" class="" style="width:178.15625px"><strong>적용 영역</strong></td><td id="w}hy" class="" style="width:227.921875px"><strong>적용 AI 기술</strong></td><td id="Oggt" class="" style="width:235.921875px"><strong>구체적 역할</strong></td></tr><tr id="2e43a94a-1fa4-8091-8a6f-dbc544ef84d4" dir="ltr"><td id="~J?q" class="" style="width:178.15625px"><strong>비정형 진료 기록 표준화</strong></td><td id="w}hy" class="" style="width:227.921875px"><strong>NLP / LLM</strong> (Natural Language Processing)</td><td id="Oggt" class="" style="width:235.921875px">서로 다른 병원 EMR의 비정형 텍스트(진료 메모, 처방명)를 분석하여 표준 질병 코드 및 성분명으로 매핑</td></tr><tr id="2e43a94a-1fa4-80a8-b530-efbf4fdb9897" dir="ltr"><td id="~J?q" class="" style="width:178.15625px"><strong>개인 맞춤형 케어 예측</strong></td><td id="w}hy" class="" style="width:227.921875px"><strong>Time-Series Forecasting</strong> (시계열 예측)</td><td id="Oggt" class="" style="width:235.921875px">아이의 종, 연령, 과거 진료 주기를 학습하여 다음 접종 및 검진 시기를 개인별로 최적화하여 예측 알림</td></tr><tr id="2e43a94a-1fa4-8095-a338-e9a0f74812bf" dir="ltr"><td id="~J?q" class="" style="width:178.15625px"><strong>처방식 수요 및 재고 최적화</strong></td><td id="w}hy" class="" style="width:227.921875px"><strong>Predictive Analytics</strong> (예측 분석)</td><td id="Oggt" class="" style="width:235.921875px">지역별 질환 발생 추이와 처방 사료 소진 속도를 분석하여 병원에는 발주 시점을, 유저에게는 구매 시점을 제안</td></tr></tbody></table><pre id="2e43a94a-1fa4-805c-8df0-eaf2d984973b" class="code code-wrap" data-notion-code-syntax="mermaid"><code class="language-mermaid" style="white-space:pre-wrap;word-break:break-all">graph LR
+    %% 스타일 정의
+    classDef step fill:#f0f4f8,stroke:#2c3e50,stroke-width:2px;
+    classDef flow fill:#fff3e0,stroke:#e65100,stroke-width:2px;
+
+    subgraph Collection [데이터 수집]
+    A[&quot;병의원 EMR/POS&lt;br/&gt;(진료이력, 재고)&quot;]:::step
+    B[&quot;사용자 앱 로그&lt;br/&gt;(푸시클릭, 예약)&quot;]:::step
+    end
+
+    subgraph Learning [학습 및 가공]
+    C[&quot;Data Preprocessing&lt;br/&gt;(텍스트 정규화)&quot;]:::flow
+    D[&quot;ML/LLM Model Training&lt;br/&gt;(패턴 및 예측 학습)&quot;]:::flow
+    end
+
+    subgraph Inference [추론 및 서비스]
+    E[&quot;맞춤형 케어 푸시&lt;br/&gt;(선제적 관리)&quot;]:::step
+    F[&quot;재고 예측/공급 최적화&lt;br/&gt;(운영 효율)&quot;]:::step
+    end
+
+    A &amp; B --&gt; C
+    C --&gt; D
+    D --&gt; E &amp; F</code></pre><p id="2dd3a94a-1fa4-801e-a5f0-ffd9cb08911a" class="" dir="auto">
+</p><ul id="2e43a94a-1fa4-80b3-895c-daa2d2d6e1c9" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>데이터 수집</strong><br/>제휴 병원의 EMR(전자차트) 내 진료 이력, 처방 약물 데이터와 POS의 사료 재고 변동 데이터를 실시간 API로 수집합니다.</li></ul><ul id="2e43a94a-1fa4-8058-9d73-c359b39cf200" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>학습</strong><br/>LLM을 활용해 병원마다 제각각인 진료 기록을 표준화하고, 누적된 생애주기 데이터를 통해 개체별 건강 패턴을 학습합니다.</li></ul><ul id="2e43a94a-1fa4-801d-8799-f307f7718d20" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>추론</strong><br/>사용자의 현재 위치와 아이의 상태를 기반으로 &quot;지금 접종이 필요합니다&quot; 혹은 &quot;근처 병원에 사료 재고가 2개 남았습니다&quot;와 같은 맞춤형 정보를 실시간 제공합니다.</li></ul><p id="2dd3a94a-1fa4-8029-ae4a-f661aac1befb" class="" dir="auto">
+</p><p id="2dd3a94a-1fa4-8059-9a5f-c57aaff4233c" class="" dir="auto">
+</p><p id="2e43a94a-1fa4-8007-aba2-d497931164ca" class="" dir="auto">
+</p><blockquote id="2e43a94a-1fa4-8061-84bd-fecf1a9ae20d" class="" dir="auto"><strong>기술 실현 가능성 분석</strong></blockquote><ul id="2e43a94a-1fa4-803e-9336-d53ec9a7f25b" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>데이터 확보 (High)<br/></strong>EMR/POS 연동 기술은 이미 시장에 존재하므로, 병원과의 제휴 전략이 핵심입니다. 데이터의 양이 늘어날수록 AI의 정확도는 기하급수적으로 상승합니다.</li></ul><ul id="2e43a94a-1fa4-80f4-846a-d09ff0a2430d" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>표준화 난이도 (Medium)<br/></strong>수의사마다 사용하는 용어가 달라 NLP 전처리가 까다롭지만, 최근 LLM(GPT-4, Gemini 등)의 등장으로 의료 전문 용어 매핑의 실현 가능성이 매우 높아졌습니다.</li></ul><ul id="2e43a94a-1fa4-80e1-ad1c-c20d2784802a" class="bulleted-list" dir="auto"><li style="list-style-type:disc"><strong>예측 모델 효율성 (High)<br/></strong>반려동물의 접종 주기와 사료 급여량은 비교적 정형화된 패턴을 따르므로, 적은 데이터로도 높은 정확도의 푸시 알람 기능을 구현할 수 있습니다.</li></ul><p id="2e43a94a-1fa4-80fd-bae2-f1eb27cfdc7f" class="" dir="auto">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
